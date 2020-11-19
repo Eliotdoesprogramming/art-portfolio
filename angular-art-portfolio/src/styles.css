@@ -4,9 +4,10 @@
 html,
 body {
     height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #dccaec;
 }
 
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+.mat-typography {
+    background-color: #ead8fa;
 }
