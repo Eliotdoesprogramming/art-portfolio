@@ -10,12 +10,18 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HttpClientInMemoryWebApiModule,InMemoryDbService } from 'angular-in-memory-web-api';
+import {HttpClientModule} from '@angular/common/http';
+import { InMemImagesService } from './in-mem-images.service';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ToolbarComponent
+    ToolbarComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,10 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatSliderModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemImagesService, { dataEncapsulation: false }
+  )
   ],
   providers: [],
   bootstrap: [AppComponent]
