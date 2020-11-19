@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { InMemImagesService } from './in-mem-images.service';
 import { ImageDisplayComponent } from './image-display/image-display.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DisplayAllImagesComponent } from './display-all-images/display-all-images.component';
 
 
 
@@ -23,6 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ToolbarComponent,
     ImageDisplayComponent,
     DashboardComponent,
+    DisplayAllImagesComponent,
    
   ],
   imports: [

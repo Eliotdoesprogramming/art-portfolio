@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../image-service.service';
 import {Image} from '../image';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,8 +11,13 @@ import {Image} from '../image';
 })
 export class ImageDisplayComponent implements OnInit {
   image:Image;
-  constructor(private imageService:ImageService) { }
-  
+  constructor(
+
+    private imageService: ImageService,
+
+  ) {}
+
+
   ngOnInit(): void {
   }
 
