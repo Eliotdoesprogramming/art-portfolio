@@ -17,7 +17,13 @@ export class InMemImagesService implements InMemoryDbService {
     ]
     return images;
   }
+  genId(images: Image[]){
+
+      return images.length > 0 ? Math.max(...images.map(image => image.id)) + 1 : 1;
+    
+  }
 }
+
 
 // export interface Image {
 //   id: number,

@@ -18,8 +18,19 @@ export class ImageServiceService {
     // TODO: send the message _after_ fetching the heroes
     return this.http.get(this.imageUrl).pipe(this.handleError<Image[]>('getImages',[]),
     tap(_ => console.log('image service: retrieved images'))); 
-      
+  }
+  getImageById(id: number):Observable<Image>{
 
+      // TODO: send the message _after_ fetching the hero
+      const url=`${this.imageUrl}/${id}`;
+      return this.http.get<Image>(url).pipe(this.handleError<Image>(`getImagesById id=${id}`),
+      tap(_ => console.log('got hero')));
+      // getHero(id: number): Observable<Hero> {
+      //   const url = `${this.heroesUrl}/${id}`;
+      //   return this.http.get<Hero>(url).pipe(
+      //     tap(_ => this.log(`fetched hero id=${id}`)),
+      //     catchError(this.handleError<Hero>(`getHero id=${id}`))
+      //   );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
