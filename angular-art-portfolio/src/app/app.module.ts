@@ -13,6 +13,7 @@ import { HttpClientInMemoryWebApiModule,InMemoryDbService } from 'angular-in-mem
 import {HttpClientModule} from '@angular/common/http';
 import { InMemImagesService } from './in-mem-images.service';
 import { ImageDisplayComponent } from './image-display/image-display.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -21,6 +22,7 @@ import { ImageDisplayComponent } from './image-display/image-display.component';
     AppComponent,
     ToolbarComponent,
     ImageDisplayComponent,
+    DashboardComponent,
    
   ],
   imports: [

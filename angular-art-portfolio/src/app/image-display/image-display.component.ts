@@ -11,7 +11,7 @@ import {Image} from '../image';
 export class ImageDisplayComponent implements OnInit {
   image:Image;
   constructor(private imageService:ImageService) { }
-
+  
   ngOnInit(): void {
   }
 
