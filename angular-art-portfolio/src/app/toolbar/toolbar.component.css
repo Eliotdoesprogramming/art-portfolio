@@ -9,3 +9,20 @@
 mat-toolbar {
     background-color: white;
 }
+
+.container {
+    width: 500px;
+    height: 100%;
+    background-color: transparent;
+}
+
+.sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidenav {
+    padding: 20px;
+}

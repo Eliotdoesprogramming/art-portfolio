@@ -15,6 +15,10 @@ import { ImageDisplayComponent } from './image-display/image-display.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DisplayAllImagesComponent } from './display-all-images/display-all-images.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+ 
+
 
 
 
@@ -25,6 +29,8 @@ import {MatCardModule} from '@angular/material/card';
     ImageDisplayComponent,
     DashboardComponent,
     DisplayAllImagesComponent,
+  
+
    
   ],
   imports: [
@@ -38,9 +44,9 @@ import {MatCardModule} from '@angular/material/card';
     MatCardModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemImagesService, { dataEncapsulation: false },
+      InMemImagesService, { dataEncapsulation: false },)
+    ,MatSidenavModule
     
-  )
   ],
   providers: [],
   bootstrap: [AppComponent]
