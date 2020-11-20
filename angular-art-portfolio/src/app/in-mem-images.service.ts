@@ -13,6 +13,9 @@ export class InMemImagesService implements InMemoryDbService {
     const images = [
       {
         id: 1, name:'tree',path:'../assets/testimage.jpg',description:'some wierd tree thing', category:'nature'
+      },
+      {
+        id: 2, name:'colorful skull',path:'../assets/skullart.jpg',description:'bones', category:'people'
       }
     ]
     return {images};

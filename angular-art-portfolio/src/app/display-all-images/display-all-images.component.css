@@ -1,4 +1,6 @@
     .images {
-        justify-content: center;
-        display: flex;
+        margin-left: 100px;
+        margin-right: 100px;
+        height: 100%;
+        width: 100%;
     }

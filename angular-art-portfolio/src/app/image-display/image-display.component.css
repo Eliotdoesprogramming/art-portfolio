@@ -1,8 +1,11 @@
 .card {
-    max-width: 400px;
+    justify-content: center;
+    width: 95%;
+    margin-bottom: 5%;
 }
 
 .header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('https://www.vhv.rs/dpng/d/292-2927118_hoodie-anime-cute-girl-hd-png-download.png');
     background-size: cover;
+    align-items: center;
 }
