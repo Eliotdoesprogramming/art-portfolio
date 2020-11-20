@@ -12,18 +12,22 @@ export class ImageService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
   constructor(private http: HttpClient) { 
   }
   getImages(): Observable<Image[]> {
-  
-    return this.http.get(this.imageUrl).pipe(this.handleError<Image[]>('getImages',[]),
-    tap(_ => console.log('image service: retrieved images'))); 
+    
+    return this.http.get<Image[]>(this.imageUrl).pipe(
+    tap(_ => console.log('image service: retrieved images')),
+    catchError(this.handleError<Image[]>('getImages',[]))
+    ); 
   }
   //will404 if image not found
   getImageById(id: number):Observable<Image>{
       const url=`${this.imageUrl}/${id}`;
-      return this.http.get<Image>(url).pipe(this.handleError<Image>(`getImagesById id=${id}`),
-      tap(_ => console.log('got hero')));
+      // return this.http.get<Image>(url).pipe(this.handleError<Image>(`getImagesById id=${id}`),
+      // tap(_ => console.log('got hero')));
+      return of(null);
  
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ImageService } from '../image-service.service';
 import {Image} from '../image';
 import { ActivatedRoute } from '@angular/router';
@@ -9,12 +9,11 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './image-display.component.html',
   styleUrls: ['./image-display.component.css']
 })
+
 export class ImageDisplayComponent implements OnInit {
-  image:Image;
+  @Input() image:Image;
   constructor(
-
-    private imageService: ImageService,
-
+    //private imageService: ImageService,
   ) {}
 
 

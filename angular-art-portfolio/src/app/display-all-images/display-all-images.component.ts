@@ -15,6 +15,11 @@ export class DisplayAllImagesComponent implements OnInit {
     this.getImages();
   }
   getImages(): void{
-    this.imageService.getImages().subscribe(images=>this.images=images);   
+    this.imageService.getImages().subscribe(
+      images=>
+      this.images=images);   
+  }
+  setImages(imarray: Image[]): void{
+    this.images=imarray;
   }
 }

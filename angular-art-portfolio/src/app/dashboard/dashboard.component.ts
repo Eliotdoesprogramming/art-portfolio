@@ -7,7 +7,6 @@ import {Image} from '../image';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @Input() image:Image;
   constructor() { }
 
   ngOnInit(): void {

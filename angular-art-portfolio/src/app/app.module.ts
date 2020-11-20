@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +14,7 @@ import { InMemImagesService } from './in-mem-images.service';
 import { ImageDisplayComponent } from './image-display/image-display.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DisplayAllImagesComponent } from './display-all-images/display-all-images.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -35,8 +35,11 @@ import { DisplayAllImagesComponent } from './display-all-images/display-all-imag
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemImagesService, { dataEncapsulation: false }
+      InMemImagesService, { dataEncapsulation: false },
+    
   )
   ],
   providers: [],
