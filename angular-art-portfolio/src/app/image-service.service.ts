@@ -8,7 +8,7 @@ import {Image} from './image';
   providedIn: 'root'
 })
 export class ImageService {
-  private imageUrl = 'api/images';
+  private imageUrl = 'http://localhost:8080/api/images';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

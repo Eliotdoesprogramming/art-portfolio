@@ -1,31 +1,31 @@
-import { Injectable } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { Observable } from 'rxjs';
-import {Image} from './image';
+// import { Injectable } from '@angular/core';
+// import { TestBed } from '@angular/core/testing';
+// import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
+// import { Observable } from 'rxjs';
+// import {Image} from './image';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class InMemImagesService implements InMemoryDbService {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class InMemImagesService implements InMemoryDbService {
 
-  createDb(){
-    const images = [
-      {
-        id: 1, name:'tree',path:'../assets/testimage.jpg',description:'some wierd tree thing', category:'nature'
-      },
-      {
-        id: 2, name:'colorful skull',path:'../assets/skullart.jpg',description:'bones', category:'people'
-      }
-    ]
-    return {images};
-  }
-  genId(images: Image[]){
+//   createDb(){
+//     const images = [
+//       {
+//         id: 1, name:'tree',path:'../assets/testimage.jpg',description:'some wierd tree thing', category:'nature'
+//       },
+//       {
+//         id: 2, name:'colorful skull',path:'../assets/skullart.jpg',description:'bones', category:'people'
+//       }
+//     ]
+//     return {images};
+//   }
+//   genId(images: Image[]){
 
-      return images.length > 0 ? Math.max(...images.map(image => image.id)) + 1 : 1;
+//       return images.length > 0 ? Math.max(...images.map(image => image.id)) + 1 : 1;
     
-  }
-}
+//   }
+// }
 
 
 // export interface Image {

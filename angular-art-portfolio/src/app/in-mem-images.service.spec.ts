@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+// import { TestBed } from '@angular/core/testing';
 
-import { InMemImagesService } from './in-mem-images.service';
+// import { InMemImagesService } from './in-mem-images.service';
 
-describe('InMemImagesService', () => {
-  let service: InMemImagesService;
+// describe('InMemImagesService', () => {
+//   let service: InMemImagesService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(InMemImagesService);
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({});
+//     service = TestBed.inject(InMemImagesService);
+//   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+//   it('should be created', () => {
+//     expect(service).toBeTruthy();
+//   });
+// });

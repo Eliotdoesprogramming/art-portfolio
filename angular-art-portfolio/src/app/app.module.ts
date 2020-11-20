@@ -10,12 +10,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HttpClientInMemoryWebApiModule,InMemoryDbService } from 'angular-in-memory-web-api';
 import {HttpClientModule} from '@angular/common/http';
-import { InMemImagesService } from './in-mem-images.service';
+// import { InMemImagesService } from './in-mem-images.service';
 import { ImageDisplayComponent } from './image-display/image-display.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DisplayAllImagesComponent } from './display-all-images/display-all-images.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { LicenseRequestComponent } from './license-request/license-request.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
  
 
@@ -29,6 +32,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     ImageDisplayComponent,
     DashboardComponent,
     DisplayAllImagesComponent,
+    LicenseRequestComponent,
   
 
    
@@ -43,9 +47,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemImagesService, { dataEncapsulation: false },)
-    ,MatSidenavModule
+    //HttpClientInMemoryWebApiModule.forRoot(
+      // InMemImagesService, { dataEncapsulation: false },)
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatSelectModule
     
   ],
   providers: [],
