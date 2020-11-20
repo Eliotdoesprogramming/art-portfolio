@@ -12,10 +12,10 @@ export class InMemImagesService implements InMemoryDbService {
   createDb(){
     const images = [
       {
-        id: 1, name:'tree',path:'../assets/testimage',description:'some wierd tree thing', category:'nature'
+        id: 1, name:'tree',path:'../assets/testimage.jpg',description:'some wierd tree thing', category:'nature'
       }
     ]
-    return images;
+    return {images};
   }
   genId(images: Image[]){
 
