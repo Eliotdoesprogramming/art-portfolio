@@ -14,13 +14,13 @@ export class LicenseRequestComponent implements OnInit {
 
   constructor(private reqService: RequestService,
               private route: ActivatedRoute,
-              private location: Location) { }
+              ) { }
 
   ngOnInit(): void {
     this.getImage();
   }
   getImage():void{
-    this.id=+this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get('id');
   }
   submit(name:string,email:string,isBusiness:boolean,description:string){
     let toSubmit:Request={

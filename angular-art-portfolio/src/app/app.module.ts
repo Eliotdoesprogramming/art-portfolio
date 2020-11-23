@@ -8,7 +8,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { HttpClientInMemoryWebApiModule,InMemoryDbService } from 'angular-in-memory-web-api';
 import {HttpClientModule} from '@angular/common/http';
 // import { InMemImagesService } from './in-mem-images.service';
 import { ImageDisplayComponent } from './image-display/image-display.component';
@@ -20,7 +19,6 @@ import { LicenseRequestComponent } from './license-request/license-request.compo
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
-
 import { CommissionComponent } from './commission/commission.component';
 import { SearchComponent } from './search/search.component';
 
@@ -38,9 +36,7 @@ import { SearchComponent } from './search/search.component';
     DisplayAllImagesComponent,
     LicenseRequestComponent,
     ContactInfoComponent,
-
     CommissionComponent,
-
     SearchComponent,
   
 
