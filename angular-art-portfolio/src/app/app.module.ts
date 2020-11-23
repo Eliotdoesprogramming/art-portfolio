@@ -19,6 +19,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { LicenseRequestComponent } from './license-request/license-request.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import { ContactInfoComponent } from './contact-info/contact-info.component';
+
+import { CommissionComponent } from './commission/commission.component';
+import { SearchComponent } from './search/search.component';
 
  
 
@@ -33,6 +37,11 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardComponent,
     DisplayAllImagesComponent,
     LicenseRequestComponent,
+    ContactInfoComponent,
+
+    CommissionComponent,
+
+    SearchComponent,
   
 
    

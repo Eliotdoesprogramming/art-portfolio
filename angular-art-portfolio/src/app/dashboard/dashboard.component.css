@@ -20,8 +20,12 @@ h1 {
 .navigation {
     justify-content: center;
     margin-left: 10%;
+    margin-right: 10%;
 }
 
 .dashbutton {
     background-color: rgba(180, 77, 228, 0.479);
+    margin-bottom: 5%;
+    width: 35%;
+    justify-content: center;
 }
