@@ -1,32 +1,28 @@
 <h1>Request License</h1>
 <div class="container">
-    <mat-form-field appearance="outline">
-        <mat-label></mat-label>
-        <input matInput> Name
-    </mat-form-field>
+
+    <input matInput #name> Name
     <br>
-    <mat-form-field appearance="outline">
-        <mat-label>email</mat-label>
-        <input matInput>Email
-    </mat-form-field>
+
+
+    <input matInput #email>Email
     <br>
-    <mat-form-field appearance="outline">
-        <mat-label>Select</mat-label>
-        <select>
-            <option value="Business">Business</option>
-            <option value="Personal">Personal</option>
+
+
+    <select #usage>
+            <option value="true">Business</option>
+            <option value="false">Personal</option>
         </select> <br>Usage
-    </mat-form-field>
     <br>
-    <mat-form-field appearance="outline">
-        <mat-label>Usage description:</mat-label>
-        <textarea matInput>describe your request</textarea> Description
-    </mat-form-field>
+
+
+    <textarea matInput #description>describe your request</textarea> Description
+
 
 
     <div class="break"></div>
     <br>
-    <button mat-button-raised>Submit Request</button>
+    <button mat-button-raised (click)="submit(name.value,email.value,usage.value,description.value)">Submit Request</button>
     <div class="break"></div>
     <p> </p>
 </div>

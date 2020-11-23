@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'dashboard',pathMatch:'full'},
   { path:'dashboard', component:DashboardComponent},
   { path:'images',component:DisplayAllImagesComponent},
-  { path: 'license',component:LicenseRequestComponent}
+  { path: 'license/:id',component:LicenseRequestComponent}
 ];
 
 @NgModule({

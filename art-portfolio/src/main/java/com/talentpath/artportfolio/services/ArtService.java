@@ -2,6 +2,7 @@ package com.talentpath.artportfolio.services;
 
 import com.talentpath.artportfolio.daos.ArtDao;
 import com.talentpath.artportfolio.models.Image;
+import com.talentpath.artportfolio.models.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,9 @@ public class ArtService {
 
     public List<Image> getAllImages() {
         return dao.getAllImages();
+    }
+
+    public Request addRequest(Request request) {
+        throw new UnsupportedOperationException();
     }
 }

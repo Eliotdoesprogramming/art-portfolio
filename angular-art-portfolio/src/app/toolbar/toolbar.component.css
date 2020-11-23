@@ -26,3 +26,7 @@ mat-toolbar {
 .sidenav {
     padding: 20px;
 }
+
+.title {
+    padding-right: 2%;
+}

@@ -14,4 +14,14 @@ h1 {
     width: 90%;
     justify-content: center;
     display: flex;
+    margin-left: 1%;
+}
+
+.navigation {
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.dashbutton {
+    background-color: rgba(180, 77, 228, 0.479);
 }
