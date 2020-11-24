@@ -26,13 +26,18 @@ public class ArtController {
         return service.getImageById(id);
     }
 
+    @GetMapping("/admin/licenseReqs")
+    public List<LicenseRequest> allLicenseRequests(){
+        return service.getAllLicenseRequests();
+    }
+
     @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
     public Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest){
         System.out.println(licenseRequest);
         LicenseRequest toAdd = new LicenseRequest(licenseRequest);
         return service.addRequest(toAdd);
     }
-    @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
+    @PostMapping(path="/commissionRequest/add", consumes = "application/json", produces = "application/json")
     public Integer addCommissionRequest(@RequestBody CommissionRequest req){
         return service.addCommissionRequest(req);
     }
@@ -41,4 +46,6 @@ public class ArtController {
         return service.grantLicense(id);
 
     }
+
+
 }

@@ -19,4 +19,6 @@ public interface ArtDao {
     LicenseRequest getLicenseById(Integer id);
 
     boolean addLicense(License license);
+
+    List<LicenseRequest> getLicenseRequests();
 }

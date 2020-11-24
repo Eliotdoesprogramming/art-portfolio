@@ -46,7 +46,7 @@ public class PostgresArtDao implements ArtDao {
     @Override
     public Integer addCommissionRequest(CommissionRequest req) {
         return template.query("INSERT INTO public.\"Commissions\"(\n" +
-                "\t name, email, description, status)\n" +
+                "\t name, email, description)\n" +
                 "\tVALUES ('"+req.getName()+"', '"+req.getEmail()+"', '"+req.getDescription()+"') returning \"id\";",new IdMapper()).get(0);
     }
 
@@ -65,6 +65,11 @@ public class PostgresArtDao implements ArtDao {
                 "\t\"imageId\", \"requestId\", \"validUntil\")\n" +
                 "\tVALUES ('"+license.getImageId()+"', '"+license.getRequestId()+"', '"+license.getValidUntil()+"');",new IdMapper());
         return true;
+    }
+
+    @Override
+    public List<LicenseRequest> getLicenseRequests() {
+        return null;
     }
 
 

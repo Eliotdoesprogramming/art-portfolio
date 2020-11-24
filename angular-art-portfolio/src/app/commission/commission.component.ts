@@ -13,7 +13,7 @@ export class CommissionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  submit(name:string,email:string,business:string,description:string){
+  submit(name:string,email:string,description:string){
     let toSubmit:CommissionRequest={
       id:0,  
       name:name,

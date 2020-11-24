@@ -16,6 +16,13 @@ h1 {
     height: auto;
     margin-bottom: 15px;
     margin-left: 15%;
+    justify-content: center;
+}
+
+p,
+textarea {
+    font-size: 10px;
+    display: flex;
 }
 
 input,

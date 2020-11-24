@@ -58,4 +58,9 @@ public class InMemArtDao implements ArtDao {
     public boolean addLicense(License license) {
         return false;
     }
+
+    @Override
+    public List<LicenseRequest> getLicenseRequests() {
+        return null;
+    }
 }

@@ -50,4 +50,8 @@ public class ArtService {
         return dao.addLicense(license);
 
     }
+
+    public List<LicenseRequest> getAllLicenseRequests() {
+        return dao.getLicenseRequests();
+    }
 }

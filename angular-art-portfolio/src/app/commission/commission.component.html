@@ -16,7 +16,7 @@
             <textarea matInput #description>describe your commission</textarea> Description
             <div class="break"></div>
             <br>
-            <button mat-button-raised>Submit Request</button>
+            <button mat-button-raised (click)="submit(name.value,email.value,description.value)">Submit Request</button>
             <div class="break"></div>
             <p> </p>
         </div>
