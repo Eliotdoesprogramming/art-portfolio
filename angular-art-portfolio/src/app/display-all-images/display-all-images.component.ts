@@ -19,7 +19,5 @@ export class DisplayAllImagesComponent implements OnInit {
       images=>
       this.images=images);   
   }
-  setImages(imarray: Image[]): void{
-    this.images=imarray;
-  }
+
 }

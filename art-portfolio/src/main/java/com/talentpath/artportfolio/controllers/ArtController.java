@@ -17,7 +17,7 @@ public class ArtController {
     ArtService service;
 
     @GetMapping("/images")
-    List<Image> getAllImages(){
+    public List<Image> getAllImages(){
         return service.getAllImages();
     }
     @GetMapping("/images/{id}")
@@ -26,7 +26,7 @@ public class ArtController {
     }
 
     @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
-    Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest){
+    public Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest){
         System.out.println(licenseRequest);
         LicenseRequest toAdd = new LicenseRequest(licenseRequest);
         return service.addRequest(toAdd);

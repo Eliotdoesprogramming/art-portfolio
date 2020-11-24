@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import {Request } from './request'
+import {LicenseRequest } from './request'
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +15,10 @@ export class RequestService {
   };
   constructor(private http:HttpClient) { }
   
-  addRequest(req: Request) {
-    return this.http.post<Request>(this.requestUrl+`/add`, req, this.httpOptions).pipe(
-      tap((newreq: Request) => console.log(`added request w/ id=${newreq.id}`)),
-      catchError(this.handleError<Request>('addRequest'))
+  addLicenseRequest(req: LicenseRequest) {
+    return this.http.post<LicenseRequest>(this.requestUrl+`/add`, req, this.httpOptions).pipe(
+      tap((newreq: LicenseRequest) => console.log(`added request w/ id=${newreq.id}`)),
+      catchError(this.handleError<LicenseRequest>('addRequest'))
     );
   }
 

@@ -1,0 +1,13 @@
+.contact {
+    margin-left: 25%;
+    padding-left: 100px;
+    margin-right: 100px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.397);
+}
+
+p {
+    font-size: 13px;
+}

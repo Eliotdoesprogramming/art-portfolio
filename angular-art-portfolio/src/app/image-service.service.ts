@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable,of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap,filter } from 'rxjs/operators';
 import {Image} from './image';
 
 @Injectable({
@@ -24,11 +24,33 @@ export class ImageService {
   }
   //will404 if image not found
   getImageById(id: number):Observable<Image>{
-      return this.http.get<Image>(this.imageUrl+`/${id}`).pipe(
-          tap(_=>console.log('found hero')),
+    //http://localhost:8080/api/images/2
+    let url:string=this.imageUrl+`/${id}`;
+      let image:any= this.http.get<Image>(url).pipe(
+          tap(image=>console.log(`found image with id ${image.id}`)),
           catchError(this.handleError<Image>('getImageById',null))) 
+      return image;
   }
 
+
+  searchImage(term: string): Observable<Image[]>{
+    if(term.trim()===""){
+      return of([]);
+    }
+
+      
+    
+    
+    return this.http.get<Image[]>(`${this.imageUrl}/search/${term}`).pipe(
+      catchError(this.handleError<Image[]>('searchImage',[])),
+      tap(
+        x=> (x.length>0)? 
+        console.log(`found ${x.length} heroes matching ${term}`):
+        console.log('found no heroes')  
+      )
+    );
+  }
+  
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   

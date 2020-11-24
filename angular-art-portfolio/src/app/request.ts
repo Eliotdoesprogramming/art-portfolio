@@ -1,4 +1,4 @@
-export interface Request{
+export interface LicenseRequest{
     id:number,
     imageId:number,
     name:string,

@@ -1,0 +1,21 @@
+#search-componenet {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin: 10px;
+}
+
+label {
+    margin: 20px;
+}
+
+input {
+    margin: 10px;
+}
+
+#but {
+    align-items: left;
+    height: 2%;
+    width: 10%;
+}

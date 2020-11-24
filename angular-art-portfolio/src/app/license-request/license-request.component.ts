@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Request} from '../request'
+import { LicenseRequest} from '../request'
 import { RequestService} from '../request.service'
 
 @Component({
@@ -23,7 +23,7 @@ export class LicenseRequestComponent implements OnInit {
     this.id = +this.route.snapshot.paramMap.get('id');
   }
   submit(name:string,email:string,business:string,description:string){
-    let toSubmit:Request={
+    let toSubmit:LicenseRequest={
       id:0,
       imageId:this.id,
       name:name,
@@ -31,7 +31,7 @@ export class LicenseRequestComponent implements OnInit {
       business:business,
       description:description
     }
-    this.reqService.addRequest(toSubmit).subscribe(_=>console.log(`added  license request`));
+    this.reqService.addLicenseRequest(toSubmit).subscribe(id=>alert(`added request with id ${id}`));
     // this.heroService.addHero({ name } as Hero)
     // .subscribe(hero => {
     //   this.heroes.push(hero);
