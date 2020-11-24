@@ -1,6 +1,8 @@
 package com.talentpath.artportfolio.daos;
 
+import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.Image;
+import com.talentpath.artportfolio.models.License;
 import com.talentpath.artportfolio.models.LicenseRequest;
 
 import java.util.ArrayList;
@@ -40,5 +42,20 @@ public class InMemArtDao implements ArtDao {
     @Override
     public Image getImageById(Integer id) {
         return null;
+    }
+
+    @Override
+    public Integer addCommissionRequest(CommissionRequest req) {
+        return null;
+    }
+
+    @Override
+    public LicenseRequest getLicenseById(Integer id) {
+        return null;
+    }
+
+    @Override
+    public boolean addLicense(License license) {
+        return false;
     }
 }

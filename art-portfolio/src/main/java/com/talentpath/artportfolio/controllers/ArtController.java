@@ -1,5 +1,6 @@
 package com.talentpath.artportfolio.controllers;
 
+import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.LicenseRequest;
 import com.talentpath.artportfolio.models.LicenseRqFromJson;
@@ -30,5 +31,14 @@ public class ArtController {
         System.out.println(licenseRequest);
         LicenseRequest toAdd = new LicenseRequest(licenseRequest);
         return service.addRequest(toAdd);
+    }
+    @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
+    public Integer addCommissionRequest(@RequestBody CommissionRequest req){
+        return service.addCommissionRequest(req);
+    }
+    @PostMapping("/grantLicense/{id}")
+    public boolean grantLicense(@PathVariable Integer id){
+        return service.grantLicense(id);
+
     }
 }
