@@ -3,6 +3,6 @@ export interface Request{
     imageId:number,
     name:string,
     email:string,
-    isBusiness:boolean,
+    business:string,
     description:string
 }

@@ -1,12 +1,31 @@
 package com.talentpath.artportfolio.models;
 
-public class Request {
+public class LicenseRequest {
     private Integer id;
+    private Integer imageId;
     private String name;
     private String email;
+
     private Boolean isBusiness;
     private String description;
-    public Request(){};
+
+    public LicenseRequest(){};
+    public LicenseRequest(LicenseRqFromJson buildFrom){
+        this.id = buildFrom.getId();
+        this.imageId= buildFrom.getImageId();
+        this.name= buildFrom.getName();
+        this.email=buildFrom.getEmail();
+        this.description=buildFrom.getDescription();
+        this.isBusiness=(buildFrom.getBusiness().equals("bus"));
+
+    }
+    public Integer getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(Integer imageId) {
+        this.imageId = imageId;
+    }
 
     public Integer getId() {
         return id;

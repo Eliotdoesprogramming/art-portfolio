@@ -22,13 +22,13 @@ export class LicenseRequestComponent implements OnInit {
   getImage():void{
     this.id = +this.route.snapshot.paramMap.get('id');
   }
-  submit(name:string,email:string,isBusiness:boolean,description:string){
+  submit(name:string,email:string,business:string,description:string){
     let toSubmit:Request={
       id:0,
       imageId:this.id,
       name:name,
       email:email,
-      isBusiness:isBusiness,
+      business:business,
       description:description
     }
     this.reqService.addRequest(toSubmit).subscribe(_=>console.log(`added  license request`));

@@ -22,6 +22,7 @@ import { ContactInfoComponent } from './contact-info/contact-info.component';
 import { CommissionComponent } from './commission/commission.component';
 import { SearchComponent } from './search/search.component';
 
+
  
 
 
@@ -38,6 +39,7 @@ import { SearchComponent } from './search/search.component';
     ContactInfoComponent,
     CommissionComponent,
     SearchComponent,
+  
   
 
    

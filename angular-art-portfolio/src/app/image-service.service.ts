@@ -24,11 +24,9 @@ export class ImageService {
   }
   //will404 if image not found
   getImageById(id: number):Observable<Image>{
-      const url=`${this.imageUrl}/${id}`;
-      // return this.http.get<Image>(url).pipe(this.handleError<Image>(`getImagesById id=${id}`),
-      // tap(_ => console.log('got hero')));
-      return of(null);
- 
+      return this.http.get<Image>(this.imageUrl+`/${id}`).pipe(
+          tap(_=>console.log('found hero')),
+          catchError(this.handleError<Image>('getImageById',null))) 
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

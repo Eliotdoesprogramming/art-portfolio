@@ -1,28 +1,30 @@
-<h1>Request License</h1>
-<div class="container">
+<div class="component">
+    <h1>Request License</h1>
+    <div class="container">
 
-    <input matInput #name> Name
-    <br>
-
-
-    <input matInput #email>Email
-    <br>
+        <input matInput #name> Name
+        <br>
 
 
-    <select #usage>
-            <option value="true">Business</option>
-            <option value="false">Personal</option>
-        </select> <br>Usage
-    <br>
+        <input matInput #email>Email
+        <br>
 
 
-    <textarea matInput #description>describe your request</textarea> Description
+        <select #usage>
+            <option value="bus">Business</option>
+            <option value="per">Personal</option>
+        </select> Usage
+        <br>
+
+
+        <textarea matInput #description>describe your request</textarea> Description
 
 
 
-    <div class="break"></div>
-    <br>
-    <button mat-button-raised (click)="submit(name.value,email.value,usage.value,description.value)">Submit Request</button>
-    <div class="break"></div>
-    <p> </p>
+        <div class="break"></div>
+        <br>
+        <button mat-button-raised (click)="submit(name.value,email.value,usage.value,description.value)">Submit Request</button>
+        <div class="break"></div>
+        <p> </p>
+    </div>
 </div>

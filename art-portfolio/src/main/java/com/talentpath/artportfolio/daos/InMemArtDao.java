@@ -1,6 +1,7 @@
 package com.talentpath.artportfolio.daos;
 
 import com.talentpath.artportfolio.models.Image;
+import com.talentpath.artportfolio.models.LicenseRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,5 +30,15 @@ public class InMemArtDao implements ArtDao {
     @Override
     public List<Image> getAllImages() {
         return allImages.stream().collect(Collectors.toList());
+    }
+
+    @Override
+    public Integer addLicenseRequest(LicenseRequest licenseRequest) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Image getImageById(Integer id) {
+        return null;
     }
 }

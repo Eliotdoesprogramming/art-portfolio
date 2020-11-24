@@ -1,6 +1,7 @@
 package com.talentpath.artportfolio.daos;
 
 import com.talentpath.artportfolio.models.Image;
+import com.talentpath.artportfolio.models.LicenseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,6 +24,23 @@ public class PostgresArtDao implements ArtDao {
         return template.query("SELECT *\n" +
                 "\tFROM public.\"Artwork\";",new ArtMapper());
     }
+
+    @Override
+    public Integer addLicenseRequest(LicenseRequest licenseRequest) {
+        return template.query("INSERT INTO public.\"LicenseRequest\"(\n" +
+                " \"imageId\", name, email, \"isBusiness\", description)\n" +
+                "\tVALUES ('"+ licenseRequest.getImageId()+"', '"+ licenseRequest.getName()+"', '"+ licenseRequest.getEmail()+"'," +
+                " '"+ licenseRequest.getBusiness()+"', '"+ licenseRequest.getDescription()+"') returning \"id\";", new IdMapper()).get(0);
+
+    }
+
+    @Override
+    public Image getImageById(Integer id) {
+        return template.query("SELECT *\n" +
+                "\tFROM public.\"Artwork\"" +
+                "WHERE \"id\"='"+id+"';",new ArtMapper()).get(0);
+    }
+
     private class ArtMapper implements RowMapper<Image>{
 
 
@@ -35,6 +53,14 @@ public class PostgresArtDao implements ArtDao {
             toReturn.setDescription(resultSet.getString("description"));
             toReturn.setCategory(resultSet.getString("category"));
             return toReturn;
+        }
+    }
+    private class IdMapper implements RowMapper<Integer>{
+
+        @Override
+        public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
+            Integer id = resultSet.getInt("id");
+            return id;
         }
     }
 }

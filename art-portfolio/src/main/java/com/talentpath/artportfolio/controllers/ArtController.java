@@ -1,7 +1,8 @@
 package com.talentpath.artportfolio.controllers;
 
 import com.talentpath.artportfolio.models.Image;
-import com.talentpath.artportfolio.models.Request;
+import com.talentpath.artportfolio.models.LicenseRequest;
+import com.talentpath.artportfolio.models.LicenseRqFromJson;
 import com.talentpath.artportfolio.services.ArtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +20,15 @@ public class ArtController {
     List<Image> getAllImages(){
         return service.getAllImages();
     }
+    @GetMapping("/images/{id}")
+    public Image getImageById(@PathVariable Integer id){
+        return service.getImageById(id);
+    }
 
-    @PostMapping(path="/request/add", consumes = "application/json", produces = "application/json")
-    Request addRequest(@RequestBody Request request){
-        return service.addRequest(request);
+    @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
+    Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest){
+        System.out.println(licenseRequest);
+        LicenseRequest toAdd = new LicenseRequest(licenseRequest);
+        return service.addRequest(toAdd);
     }
 }

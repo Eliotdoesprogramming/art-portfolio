@@ -4,6 +4,7 @@ import { CommissionComponent } from './commission/commission.component';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DisplayAllImagesComponent } from './display-all-images/display-all-images.component';
+import { ImageDisplayComponent } from './image-display/image-display.component';
 import { LicenseRequestComponent } from './license-request/license-request.component';
 import { SearchComponent } from './search/search.component';
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'license/:id',component:LicenseRequestComponent},
   { path: 'contact',component:ContactInfoComponent},
   {path: 'commission',component:CommissionComponent},
-  {path:'search', component:SearchComponent}
+  {path:'search', component:SearchComponent},
+  
 ];
 
 @NgModule({

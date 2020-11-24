@@ -9,7 +9,7 @@ import {Request } from './request'
   providedIn: 'root'
 })
 export class RequestService {
-  private requestUrl ='http://localhost:8080/api/request';
+  private requestUrl ='http://localhost:8080/api/licenseRequest';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
