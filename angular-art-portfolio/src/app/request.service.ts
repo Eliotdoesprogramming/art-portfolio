@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import {LicenseRequest } from './request'
+import { CommissionRequest } from './commissionRequest';
+import {LicenseRequest } from './licenseRequest'
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestService {
   private requestUrl ='http://localhost:8080/api/licenseRequest';
+  private commUrl = 'http://localhost:8080/api/commissionRequest';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -19,6 +21,12 @@ export class RequestService {
     return this.http.post<LicenseRequest>(this.requestUrl+`/add`, req, this.httpOptions).pipe(
       tap((newreq: LicenseRequest) => console.log(`added request w/ id=${newreq.id}`)),
       catchError(this.handleError<LicenseRequest>('addRequest'))
+    );
+  }
+  addCommisionRequest(req:CommissionRequest){
+    return this.http.post<CommissionRequest>(this.commUrl+`/add`,req,this.httpOptions).pipe(
+      tap((newReq:CommissionRequest)=>console.log(`added request with id = ${newReq.id}`)
+      ,catchError(this.handleError<CommissionRequest>('addCommisionRequest')))
     );
   }
 

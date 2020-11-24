@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LicenseRequest} from '../request'
+import { LicenseRequest} from '../licenseRequest'
 import { RequestService} from '../request.service'
 
 @Component({
