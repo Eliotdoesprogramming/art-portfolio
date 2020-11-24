@@ -1,6 +1,8 @@
 package com.talentpath.artportfolio.services;
 
 import com.talentpath.artportfolio.daos.ArtDao;
+import com.talentpath.artportfolio.daos.CommissionDao;
+import com.talentpath.artportfolio.daos.LicenseDao;
 import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.License;
@@ -15,30 +17,34 @@ import java.util.List;
 @Service
 public class ArtService {
 
-    ArtDao dao;
+    ArtDao artDao;
+    LicenseDao licenseDao;
+    CommissionDao commissionDao;
     @Autowired
-    public ArtService(ArtDao dao){
-        this.dao=dao;
+    public ArtService(ArtDao artDao,LicenseDao licenseDao, CommissionDao commissionDao){
+        this.artDao=artDao;
+        this.licenseDao=licenseDao;
+        this.commissionDao=commissionDao;
     }
 
     public List<Image> getAllImages() {
-        return dao.getAllImages();
+        return artDao.getAllImages();
     }
 
     public Integer addRequest(LicenseRequest licenseRequest) {
-        return dao.addLicenseRequest(licenseRequest);
+        return licenseDao.addLicenseRequest(licenseRequest);
     }
 
     public Image getImageById(Integer id) {
-        return dao.getImageById(id);
+        return artDao.getImageById(id);
     }
 
     public Integer addCommissionRequest(CommissionRequest req) {
-        return dao.addCommissionRequest(req);
+        return commissionDao.addCommissionRequest(req);
     }
 
     public boolean grantLicense(Integer id) {
-        LicenseRequest toGrant = dao.getLicenseById(id);
+        LicenseRequest toGrant = licenseDao.getLicenseById(id);
         License license = new License();
         license.setImageId(toGrant.getImageId());
         license.setRequestId(toGrant.getId());
@@ -47,11 +53,11 @@ public class ArtService {
         cal.add(Calendar.YEAR, 1); // to get previous year add -1
         Date nextYear = cal.getTime();
         license.setValidUntil(nextYear);
-        return dao.addLicense(license);
+        return licenseDao.addLicense(license);
 
     }
 
     public List<LicenseRequest> getAllLicenseRequests() {
-        return dao.getLicenseRequests();
+        return licenseDao.getLicenseRequests();
     }
 }

@@ -10,15 +10,13 @@ import java.util.List;
 public interface ArtDao {
     List<Image> getAllImages();
 
-    Integer addLicenseRequest(LicenseRequest licenseRequest);
+
 
     Image getImageById(Integer id);
 
-    Integer addCommissionRequest(CommissionRequest req);
 
-    LicenseRequest getLicenseById(Integer id);
 
-    boolean addLicense(License license);
 
-    List<LicenseRequest> getLicenseRequests();
+
+
 }

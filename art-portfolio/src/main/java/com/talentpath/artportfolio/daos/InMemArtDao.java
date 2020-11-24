@@ -34,33 +34,14 @@ public class InMemArtDao implements ArtDao {
         return allImages.stream().collect(Collectors.toList());
     }
 
-    @Override
-    public Integer addLicenseRequest(LicenseRequest licenseRequest) {
-        throw new UnsupportedOperationException();
-    }
+
 
     @Override
     public Image getImageById(Integer id) {
         return null;
     }
 
-    @Override
-    public Integer addCommissionRequest(CommissionRequest req) {
-        return null;
-    }
 
-    @Override
-    public LicenseRequest getLicenseById(Integer id) {
-        return null;
-    }
 
-    @Override
-    public boolean addLicense(License license) {
-        return false;
-    }
 
-    @Override
-    public List<LicenseRequest> getLicenseRequests() {
-        return null;
-    }
 }
