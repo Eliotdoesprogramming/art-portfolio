@@ -1,1 +1,4 @@
-<p>pending-commission-view works!</p>
+<h1>Pending Commissions</h1>
+<div *ngFor="let comm of commissions">
+    <app-commission-view [comm]="comm"></app-commission-view>
+</div>
