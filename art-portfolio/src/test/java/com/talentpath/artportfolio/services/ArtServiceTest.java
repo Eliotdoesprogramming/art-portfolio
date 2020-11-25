@@ -1,6 +1,7 @@
 package com.talentpath.artportfolio.services;
 
 import com.talentpath.artportfolio.models.COMMISSION_STATUS;
+import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.LicenseRequest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,6 +37,11 @@ class ArtServiceTest {
              ) {
             System.out.println(r.getId());
         }
+    }
+    @Test
+    public void searchTest(){
+        List<Image> images =service.searchImage("tree");
+        System.out.println(images.get(0).getName());
     }
 
 }

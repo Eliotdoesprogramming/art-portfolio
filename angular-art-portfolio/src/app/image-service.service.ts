@@ -37,18 +37,12 @@ export class ImageService {
     if(term.trim()===""){
       return of([]);
     }
-
-      
-    
-    
-    return this.http.get<Image[]>(`${this.imageUrl}/search/${term}`).pipe(
-      catchError(this.handleError<Image[]>('searchImage',[])),
-      tap(
-        x=> (x.length>0)? 
-        console.log(`found ${x.length} heroes matching ${term}`):
-        console.log('found no heroes')  
-      )
+    let url:string = this.imageUrl+`/search/${term}`;
+    return this.http.get<Image[]>(url).pipe(
+      tap(_=>console.log('found image')),
+      catchError(this.handleError<Image[]>('searchImage',[]))
     );
+
   }
   
   private handleError<T>(operation = 'operation', result?: T) {

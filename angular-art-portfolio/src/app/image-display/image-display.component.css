@@ -1,6 +1,6 @@
 .card {
     justify-content: center;
-    width: 95%;
+    width: 80%;
     margin-bottom: 5%;
 }
 
@@ -8,4 +8,13 @@
     background-image: url('https://www.vhv.rs/dpng/d/292-2927118_hoodie-anime-cute-girl-hd-png-download.png');
     background-size: cover;
     align-items: center;
+}
+
+.liked {
+    background-color: pink;
+}
+
+img {
+    max-height: 500px;
+    width: 100%;
 }

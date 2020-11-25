@@ -15,8 +15,5 @@ public interface ArtDao {
     Image getImageById(Integer id);
 
 
-
-
-
-
+    List<Image> searchImage(String term);
 }

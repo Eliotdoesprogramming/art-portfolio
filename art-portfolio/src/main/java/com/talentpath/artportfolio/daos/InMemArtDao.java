@@ -41,7 +41,10 @@ public class InMemArtDao implements ArtDao {
         return null;
     }
 
-
+    @Override
+    public List<Image> searchImage(String term) {
+        return null;
+    }
 
 
 }

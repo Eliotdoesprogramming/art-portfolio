@@ -36,7 +36,11 @@ public class PostgresArtDao implements ArtDao {
                 "WHERE \"id\"='"+id+"';",new ArtMapper()).get(0);
     }
 
+    @Override
+    public List<Image> searchImage(String term) {
+        return template.query("SELECT * FROM public.\"Artwork\" WHERE \"name\" LIKE '%"+term+"%'",new ArtMapper());
 
+    }
 
 
     private class ArtMapper implements RowMapper<Image>{

@@ -36,6 +36,10 @@ public class ArtController {
     public Integer addCommissionRequest(@RequestBody CommissionRequest req){
         return service.addCommissionRequest(req);
     }
+    @GetMapping("/images/search/{term}")
+    public List<Image> searchResults(@PathVariable String term){
+        return service.searchImage(term);
+    }
 
 
 

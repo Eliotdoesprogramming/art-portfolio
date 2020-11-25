@@ -74,4 +74,8 @@ public class ArtService {
     public List<CommissionRequest> getPendingCommissions() {
         return commissionDao.getPendingCommissions();
     }
+
+    public List<Image> searchImage(String term) {
+        return artDao.searchImage(term);
+    }
 }

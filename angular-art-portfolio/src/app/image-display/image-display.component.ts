@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ImageDisplayComponent implements OnInit {
   @Input() image:Image;
+  liked:boolean=false;
   constructor(
     //private imageService: ImageService,
   ) {}
@@ -19,5 +20,6 @@ export class ImageDisplayComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

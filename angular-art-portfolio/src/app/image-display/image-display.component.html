@@ -11,8 +11,9 @@
         </p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+
+        <a routerLink="/images/{{image.id}}">
+            <button mat-button>SHARE</button></a>
         <a routerLink="/license/{{image.id}}">
             <button mat-button>Request License</button>
         </a>
