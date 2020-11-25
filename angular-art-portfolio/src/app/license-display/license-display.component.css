@@ -1,7 +1,8 @@
 .licenseContainer {
     background-color: white;
-    margin: 5px;
+    margin-top: 20px;
     padding: 10px;
+    width: 100%;
 }
 
 span {
@@ -10,4 +11,5 @@ span {
 
 button {
     font-size: 10px;
+    margin-left: 5px;
 }
