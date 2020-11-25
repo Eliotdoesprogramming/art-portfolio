@@ -36,11 +36,7 @@ public class ArtController {
     public Integer addCommissionRequest(@RequestBody CommissionRequest req){
         return service.addCommissionRequest(req);
     }
-    @PostMapping("/grantLicense/{id}")
-    public boolean grantLicense(@PathVariable Integer id){
-        return service.grantLicense(id);
 
-    }
 
 
 

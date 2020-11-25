@@ -23,6 +23,13 @@ public class AdminController {
     public List<LicenseRequest> allLicenseRequests(){
         return service.getAllLicenseRequests();
     }
+    @PostMapping("/grantLicense/{id}")
+    public boolean grantLicense(@PathVariable Integer id){
+        return service.grantLicense(id);
+
+    }
+
+
     @GetMapping("/commissions")
     public List<CommissionRequest> allCommissions(){return service.getAllCommissions();}
     @GetMapping("/commissions/pending")
@@ -50,4 +57,5 @@ public class AdminController {
         }
         return service.updateCommission(id,enumStat);
     }
+
 }

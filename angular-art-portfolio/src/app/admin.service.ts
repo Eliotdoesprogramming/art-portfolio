@@ -18,26 +18,32 @@ export class AdminService {
 
   getAllLicenseRequests(): Observable<LicenseRequest[]>{
     return this.http.get<LicenseRequest[]>(this.url+`/licenseReqs`).pipe(
-      tap(_ => console.log('image service: retrieved lqrs')),
+      tap(_ => console.log('admin service: retrieved lqrs')),
       catchError(this.handleError<LicenseRequest[]>('getAllLicenseRequests',[]))
       );    
   }
   getPendingLicenseRequests(): Observable<LicenseRequest[]>{
     return this.http.get<LicenseRequest[]>(this.url+`/licenseReqs/pending`).pipe(
-      tap(_ => console.log('image service: retrieved lqrs')),
+      tap(_ => console.log('admin service: retrieved lqrs')),
       catchError(this.handleError<LicenseRequest[]>('getAllLicenseRequests',[]))
       );    
   }
+  grantLicense(id:number):Observable<boolean>{
+    return this.http.post<boolean>(this.url+`/grantLicense/${id}`,"",this.httpOptions).pipe(
+      tap(_ => console.log('admin service: granted license')),
+      catchError(this.handleError<boolean>('getAllLicenseRequests',false))
+      );
+  }
   getAllCommissionRequests(): Observable<CommissionRequest[]>{
     return this.http.get<CommissionRequest[]>(this.url+`/commissions`).pipe(
-      tap(_ => console.log('image service: retrieved commreqs')),
+      tap(_ => console.log('admin service: retrieved commreqs')),
       catchError(this.handleError<CommissionRequest[]>('getAllLicenseRequests',[]))
       ); 
   }
   ///commissions/pending
   getPendingCommissionRequests(): Observable<CommissionRequest[]>{
     return this.http.get<CommissionRequest[]>(this.url+`/commissions/pending`).pipe(
-      tap(_ => console.log('image service: retrieved  pending commreqs')),
+      tap(_ => console.log('admin service: retrieved  pending commreqs')),
       catchError(this.handleError<CommissionRequest[]>('getAllLicenseRequests',[]))
       ); 
   }
@@ -45,7 +51,7 @@ export class AdminService {
   //   /commission/update/{id}/{status}
   updateCommission(id:number,status:number):Observable<boolean>{
     return this.http.post<boolean>(this.url+`/commission/update/${id}/${status}`,"",this.httpOptions).pipe(
-      tap(_ => console.log('image service: retrieved  pending commreqs')),
+      tap(_ => console.log('admin service: retrieved  pending commreqs')),
       catchError(this.handleError<boolean>('getAllLicenseRequests',false))
       );
   }

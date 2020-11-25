@@ -1,0 +1,14 @@
+<div class="licenseContainer">
+    <span>Request id: {{license.id}}</span>
+    <br>
+    <span>Name: {{license.name}}</span>
+    <br>
+    <span>Image id: {{license.imageId}}</span>
+    <br>
+    <span>Description:  </span>
+    <br>
+    <textarea>{{license.description}}</textarea>
+    <br>
+    <button mat-raised-button (click)="grantLicense()">Grant License</button>
+    <a routerLink="/admin"><button mat-raised-button>return admin</button></a>
+</div>

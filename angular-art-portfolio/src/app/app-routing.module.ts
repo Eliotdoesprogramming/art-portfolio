@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AllLicenseViewerComponent } from './all-license-viewer/all-license-viewer.component';
 import { CommissionComponent } from './commission/commission.component';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'commission',component:CommissionComponent},
   {path:'search', component:SearchComponent},
   {path:'images/:id',component:ImageByIdComponent},
-  {path:'admin', component:AdminDashboardComponent}
+  {path:'admin', component:AdminDashboardComponent},
+  {path:'admin/all-lrq',component:AllLicenseViewerComponent}
   
 ];
 

@@ -23,6 +23,8 @@ import { CommissionComponent } from './commission/commission.component';
 import { SearchComponent } from './search/search.component';
 import { ImageByIdComponent } from './image-by-id/image-by-id.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AllLicenseViewerComponent } from './all-license-viewer/all-license-viewer.component';
+import { LicenseDisplayComponent } from './license-display/license-display.component';
 
 
  
@@ -43,6 +45,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     SearchComponent,
     ImageByIdComponent,
     AdminDashboardComponent,
+    AllLicenseViewerComponent,
+    LicenseDisplayComponent,
   
   
 
