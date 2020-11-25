@@ -34,8 +34,8 @@ public class AdminController {
     public List<CommissionRequest> allCommissions(){return service.getAllCommissions();}
     @GetMapping("/commissions/pending")
     public List<CommissionRequest> pendingCommissions(){return service.getPendingCommissions();}
-    @PostMapping("/commission/update/{id}/{status}")
-    public boolean updateCommission(@PathVariable Integer id, @PathVariable Integer status){
+    @PutMapping("/commission/update/{id}/{status}")
+    public CommissionRequest updateCommission(@PathVariable Integer id, @PathVariable Integer status){
         COMMISSION_STATUS enumStat = COMMISSION_STATUS.PENDING;
         switch(status){
             case 0:

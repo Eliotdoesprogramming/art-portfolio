@@ -49,10 +49,10 @@ export class AdminService {
   }
 
   //   /commission/update/{id}/{status}
-  updateCommission(id:number,status:number):Observable<boolean>{
-    return this.http.post<boolean>(this.url+`/commission/update/${id}/${status}`,"",this.httpOptions).pipe(
+  updateCommission(id:number,status:number):Observable<CommissionRequest>{
+    return this.http.put<CommissionRequest>(this.url+`/commission/update/${id}/${status}`,"",this.httpOptions).pipe(
       tap(_ => console.log('admin service: retrieved  pending commreqs')),
-      catchError(this.handleError<boolean>('getAllLicenseRequests',false))
+      catchError(this.handleError<CommissionRequest>('getAllLicenseRequests',null))
       );
   }
 

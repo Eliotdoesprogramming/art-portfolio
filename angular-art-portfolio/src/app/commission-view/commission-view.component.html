@@ -1,1 +1,21 @@
-<p>commission-view works!</p>
+<div class="licenseContainer">
+    <span>Request id: {{comm.id}}</span>
+    <br>
+    <span>Name: {{comm.name}}</span>
+    <br>
+    <span>Description:  </span>
+    <br>
+    <textarea>{{comm.description}}</textarea>
+    <br>
+    <span>Status: {{comm.status}}</span>
+    <br>
+    <select #status>
+        <option value="0">Pending</option>
+        <option value="1">Accepted</option>
+        <option value="2">Rejected</option>
+        <option value="3">Working</option>
+        <option value="4">Finished</option>
+    </select>
+    <button mat-raised-button (click)="update(status.value); "> update</button><br>
+    <a routerLink="/admin"><button mat-raised-button>return admin</button></a>
+</div>

@@ -17,7 +17,7 @@ public class CommissionRequest {
     public void setStatus(COMMISSION_STATUS status) {
         this.status = status;
     }
-
+    //public void setStatus(String status){this.status = COMMISSION_STATUS.valueOf(status);}
     public Integer getId() {
         return id;
     }

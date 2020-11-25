@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
+import { CommissionRequest } from '../commissionRequest';
 
 @Component({
   selector: 'app-commission-view',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./commission-view.component.css']
 })
 export class CommissionViewComponent implements OnInit {
-
-  constructor() { }
+  @Input() comm:CommissionRequest;
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
   }
+  update(status:string): void{
+    let updated = false;
+    this.adminService.updateCommission(this.comm.id,+status).subscribe(n=>this.comm=n);
+    
+
+    
+  }
+
 
 }

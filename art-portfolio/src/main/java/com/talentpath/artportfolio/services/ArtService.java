@@ -43,7 +43,13 @@ public class ArtService {
     public Integer addCommissionRequest(CommissionRequest req) {
         return commissionDao.addCommissionRequest(req);
     }
-    public boolean updateCommission(Integer id, COMMISSION_STATUS status){return commissionDao.updateStatus(id,status);}
+    public CommissionRequest updateCommission(Integer id, COMMISSION_STATUS status){
+        if(commissionDao.updateStatus(id,status))
+            return commissionDao.getCommissionRequestById(id);
+        else{
+            return null;
+        }
+    }
 
     public boolean grantLicense(Integer id) {
         LicenseRequest toGrant = licenseDao.getLicenseById(id);

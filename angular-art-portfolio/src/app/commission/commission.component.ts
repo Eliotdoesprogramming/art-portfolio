@@ -18,7 +18,8 @@ export class CommissionComponent implements OnInit {
       id:0,  
       name:name,
       email:email,
-      description:description
+      description:description,
+      status:'PENDING'
     }
     this.reqService.addCommisionRequest(toSubmit).subscribe(id=>alert(`added request with id ${id}`));
 }

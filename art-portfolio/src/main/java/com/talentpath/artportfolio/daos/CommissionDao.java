@@ -11,4 +11,6 @@ public interface CommissionDao {
     boolean updateStatus(Integer id, COMMISSION_STATUS status);
 
     List<CommissionRequest> getPendingCommissions();
+
+     CommissionRequest getCommissionRequestById(Integer id);
 }

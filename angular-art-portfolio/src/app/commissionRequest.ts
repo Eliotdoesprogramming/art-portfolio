@@ -3,4 +3,5 @@ export interface CommissionRequest{
     name:string,
     email:string,
     description:string,
+    status:string
 }

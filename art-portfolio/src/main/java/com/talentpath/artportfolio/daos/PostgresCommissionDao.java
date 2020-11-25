@@ -51,6 +51,13 @@ public class PostgresCommissionDao implements CommissionDao{
                 "OR \"status\" != 'REJECTED';",new CommissionRequestMapper());
     }
 
+    @Override
+    public CommissionRequest getCommissionRequestById(Integer id) {
+        return template.query("SELECT * " +
+                "\tFROM public.\"Commissions\"" +
+                "Where \"id\"='"+id+"';",new CommissionRequestMapper()).get(0);
+    }
+
     private class CommissionRequestMapper implements RowMapper<CommissionRequest>{
 
         @Override
