@@ -1,6 +1,8 @@
 .dashbutton {
     background-color: rgba(180, 77, 228, 0.479);
     margin-bottom: 5%;
-    width: 35%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 30%;
     justify-content: center;
 }

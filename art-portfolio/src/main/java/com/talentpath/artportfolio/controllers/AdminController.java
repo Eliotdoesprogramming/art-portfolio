@@ -17,7 +17,7 @@ public class AdminController {
     @Autowired
     ArtService service;
 
-    @GetMapping("/getPendingLicenseReqs")
+    @GetMapping("/licenseReqs/pending")
     public List<LicenseRequest> pendingLicenseRequests(){return service.getPendingLicenseRequests();}
     @GetMapping("/licenseReqs")
     public List<LicenseRequest> allLicenseRequests(){
@@ -27,7 +27,7 @@ public class AdminController {
     public List<CommissionRequest> allCommissions(){return service.getAllCommissions();}
     @GetMapping("/commissions/pending")
     public List<CommissionRequest> pendingCommissions(){return service.getPendingCommissions();}
-    @PostMapping("/updateCommission/{id}/{status}")
+    @PostMapping("/commission/update/{id}/{status}")
     public boolean updateCommission(@PathVariable Integer id, @PathVariable Integer status){
         COMMISSION_STATUS enumStat = COMMISSION_STATUS.PENDING;
         switch(status){
