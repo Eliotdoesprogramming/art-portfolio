@@ -26,6 +26,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AllLicenseViewerComponent } from './all-license-viewer/all-license-viewer.component';
 import { LicenseDisplayComponent } from './license-display/license-display.component';
 import { PendinglrqViewerComponent } from './pendinglrq-viewer/pendinglrq-viewer.component';
+import { AllCommissionViewComponent } from './all-commission-view/all-commission-view.component';
+import { PendingCommissionViewComponent } from './pending-commission-view/pending-commission-view.component';
+import { CommissionViewComponent } from './commission-view/commission-view.component';
 
 
  
@@ -49,6 +52,9 @@ import { PendinglrqViewerComponent } from './pendinglrq-viewer/pendinglrq-viewer
     AllLicenseViewerComponent,
     LicenseDisplayComponent,
     PendinglrqViewerComponent,
+    AllCommissionViewComponent,
+    PendingCommissionViewComponent,
+    CommissionViewComponent,
   
   
 
