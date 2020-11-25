@@ -59,7 +59,7 @@ public class ArtService {
     public List<LicenseRequest> getAllLicenseRequests() {
         return licenseDao.getLicenseRequests();
     }
-    public List<LicenseRequest> getPendingLicenseRequests(){return getPendingLicenseRequests();}
+    public List<LicenseRequest> getPendingLicenseRequests(){return licenseDao.getPendingLicenseRequests();}
 
     public List<CommissionRequest> getAllCommissions() {
         return commissionDao.getCommissionRequests();

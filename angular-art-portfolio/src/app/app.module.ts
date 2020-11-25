@@ -25,6 +25,7 @@ import { ImageByIdComponent } from './image-by-id/image-by-id.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AllLicenseViewerComponent } from './all-license-viewer/all-license-viewer.component';
 import { LicenseDisplayComponent } from './license-display/license-display.component';
+import { PendinglrqViewerComponent } from './pendinglrq-viewer/pendinglrq-viewer.component';
 
 
  
@@ -47,6 +48,7 @@ import { LicenseDisplayComponent } from './license-display/license-display.compo
     AdminDashboardComponent,
     AllLicenseViewerComponent,
     LicenseDisplayComponent,
+    PendinglrqViewerComponent,
   
   
 

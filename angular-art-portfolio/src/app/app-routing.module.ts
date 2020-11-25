@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DisplayAllImagesComponent } from './display-all-images/display-all-images.component';
 import { ImageByIdComponent } from './image-by-id/image-by-id.component';
 import { LicenseRequestComponent } from './license-request/license-request.component';
+import { PendinglrqViewerComponent } from './pendinglrq-viewer/pendinglrq-viewer.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   {path:'search', component:SearchComponent},
   {path:'images/:id',component:ImageByIdComponent},
   {path:'admin', component:AdminDashboardComponent},
-  {path:'admin/all-lrq',component:AllLicenseViewerComponent}
+  {path:'admin/all-lrq',component:AllLicenseViewerComponent},
+  {path:'admin/pending-lrq',component:PendinglrqViewerComponent}
+
   
 ];
 
