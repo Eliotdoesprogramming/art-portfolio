@@ -1,11 +1,12 @@
 package com.talentpath.artportfolio.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class License {
     Integer requestId;
     Integer imageId;
-    Date validUntil;
+    LocalDate validUntil;
 
     public Integer getRequestId() {
         return requestId;
@@ -23,11 +24,11 @@ public class License {
         this.imageId = imageId;
     }
 
-    public Date getValidUntil() {
+    public LocalDate getValidUntil() {
         return validUntil;
     }
 
-    public void setValidUntil(Date validUntil) {
+    public void setValidUntil(LocalDate validUntil) {
         this.validUntil = validUntil;
     }
 }

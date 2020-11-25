@@ -26,11 +26,6 @@ public class ArtController {
         return service.getImageById(id);
     }
 
-    @GetMapping("/admin/licenseReqs")
-    public List<LicenseRequest> allLicenseRequests(){
-        return service.getAllLicenseRequests();
-    }
-
     @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
     public Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest){
         System.out.println(licenseRequest);
@@ -46,6 +41,7 @@ public class ArtController {
         return service.grantLicense(id);
 
     }
+
 
 
 }

@@ -29,17 +29,17 @@ public class PostgresLicenseDao implements LicenseDao {
     @Override
     public LicenseRequest getLicenseById(Integer id) {
         return template.query(
-                "SELECT id, \"imageId\", name, email, \"isBusiness\", description\n" +
-                        "\tFROM public.\"LicenseRequest\";" +
+                "SELECT \"id\", \"imageId\", \"name\", \"email\", \"isBusiness\", \"description\"\n" +
+                        "\tFROM public.\"LicenseRequest\"" +
                         "where \"id\"='"+id+"'",new LicenseRequestMapper()
         ).get(0);
     }
 
     @Override
     public boolean addLicense(License license) {
-        template.query("INSERT INTO public.\"LicenseGranted\"(\n" +
+        template.update("INSERT INTO public.\"LicenseGranted\"(\n" +
                 "\t\"imageId\", \"requestId\", \"validUntil\")\n" +
-                "\tVALUES ('"+license.getImageId()+"', '"+license.getRequestId()+"', '"+license.getValidUntil()+"');",new IdMapper()).get(0);
+                "\tVALUES ('"+license.getImageId()+"', '"+license.getRequestId()+"', '"+license.getValidUntil()+"');");
         return true;
     }
 
@@ -48,6 +48,16 @@ public class PostgresLicenseDao implements LicenseDao {
         return template.query("SELECT * "+
                 "\tFROM public.\"LicenseRequest\";",new LicenseRequestMapper());
     }
+
+    @Override
+    public List<LicenseRequest> getPendingLicenseRequests() {
+        return template.query("SELECT rq.\"id\",rq.\"imageId\", rq.\"name\", rq.\"email\", rq.\"isBusiness\", rq.\"description\"\n" +
+                "FROM \"LicenseRequest\" as rq\n" +
+                "    LEFT JOIN \"LicenseGranted\" as t2 \n" +
+                "\tON rq.\"id\" = t2.\"requestId\"\n" +
+                "WHERE t2.\"requestId\" IS NULL", new LicenseRequestMapper());
+    }
+
 
     private class LicenseRequestMapper implements RowMapper<LicenseRequest> {
 

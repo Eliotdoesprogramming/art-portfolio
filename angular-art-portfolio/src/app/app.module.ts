@@ -22,6 +22,7 @@ import { ContactInfoComponent } from './contact-info/contact-info.component';
 import { CommissionComponent } from './commission/commission.component';
 import { SearchComponent } from './search/search.component';
 import { ImageByIdComponent } from './image-by-id/image-by-id.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
  
@@ -41,6 +42,7 @@ import { ImageByIdComponent } from './image-by-id/image-by-id.component';
     CommissionComponent,
     SearchComponent,
     ImageByIdComponent,
+    AdminDashboardComponent,
   
   
 
