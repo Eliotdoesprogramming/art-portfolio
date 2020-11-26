@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -77,5 +75,8 @@ public class ArtService {
 
     public List<Image> searchImage(String term) {
         return artDao.searchImage(term);
+    }
+    public List<LicenseView> viewLicenses(){
+        return licenseDao.viewLicenses();
     }
 }

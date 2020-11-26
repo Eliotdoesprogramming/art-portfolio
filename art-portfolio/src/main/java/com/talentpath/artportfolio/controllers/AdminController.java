@@ -4,6 +4,7 @@ package com.talentpath.artportfolio.controllers;
 import com.talentpath.artportfolio.models.COMMISSION_STATUS;
 import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.LicenseRequest;
+import com.talentpath.artportfolio.models.LicenseView;
 import com.talentpath.artportfolio.services.ArtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,8 @@ public class AdminController {
         return service.grantLicense(id);
 
     }
-
+    @GetMapping("/viewLicenses")
+    public List<LicenseView> viewLicenses(){return service.viewLicenses();}
 
     @GetMapping("/commissions")
     public List<CommissionRequest> allCommissions(){return service.getAllCommissions();}

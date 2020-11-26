@@ -2,6 +2,7 @@ package com.talentpath.artportfolio.daos;
 
 import com.talentpath.artportfolio.models.License;
 import com.talentpath.artportfolio.models.LicenseRequest;
+import com.talentpath.artportfolio.models.LicenseView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,6 +27,16 @@ public class PostgresLicenseDao implements LicenseDao {
                 " '"+ licenseRequest.getBusiness()+"', '"+ licenseRequest.getDescription()+"') returning \"id\";", new IdMapper()).get(0);
 
     }
+
+    @Override
+    public List<LicenseView> viewLicenses() {
+        return template.query("SELECT lr.\"id\" as \"request id\", lr.\"name\" as \"licensed name\",lc.\"validUntil\" as \"license expires\", \n" +
+                "\t\tar.\"id\" as \"image id\", ar.\"name\" as \"image name\"\n" +
+                "\tFROM public.\"LicenseGranted\" as \"lc\"\n" +
+                "\tLEFT JOIN public.\"LicenseRequest\" as \"lr\" on lc.\"requestId\" = lr.\"id\"\n" +
+                "\tLEFT JOIN public.\"Artwork\" as \"ar\" on lr.\"imageId\"= ar.\"id\";",new LicenseViewMapper());
+    }
+
     @Override
     public LicenseRequest getLicenseById(Integer id) {
         return template.query(
@@ -70,6 +81,22 @@ public class PostgresLicenseDao implements LicenseDao {
             toReturn.setEmail(resultSet.getString("email"));
             toReturn.setDescription(resultSet.getString("description"));
             return toReturn;
+        }
+    }
+    private class LicenseViewMapper implements RowMapper<LicenseView>{
+
+        @Override
+        public LicenseView mapRow(ResultSet resultSet, int i) throws SQLException {
+            //SELECT lr."id" as "request id", lr."name" as "licensed name",lc."validUntil" as "license expires",
+            //		ar."id" as "image id", ar."name" as "image name"
+            LicenseView toReturn = new LicenseView();
+            toReturn.setReqId(resultSet.getInt("request id"));
+            toReturn.setLicensedName(resultSet.getString("licensed name"));
+            toReturn.setImageId(resultSet.getInt("image id"));
+            toReturn.setLicenseExpires(resultSet.getString("license expires"));
+            toReturn.setImageName(resultSet.getString("image name"));
+            return toReturn;
+
         }
     }
     class IdMapper implements RowMapper<Integer>{
