@@ -1,6 +1,6 @@
 export interface GrantedLicense{
     reqId:number;
-    licenseName:string;
+    licensedName:string;
     licenseExpires:string;
     imageId:number;
     imageName:string;
