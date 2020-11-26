@@ -1,5 +1,44 @@
-<app-toolbar></app-toolbar>
-<h1>{{title}}</h1>
-<div class="centered">
-    <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container fullscreen>
+    <mat-sidenav mode="side" #sidenav closed position="start">
+        <br>
+        <br>
+        <br>
+        <br>
+        <a class="sidetxt" routerLink="/dashboard">Home</a>
+        <br>
+        <br>
+        <br>
+        <a class="sidetxt" routerLink="/images">All Images</a>
+        <br>
+        <br>
+        <br>
+        <a class="sidetxt" routerLink="/search">Search Images</a>
+        <br>
+        <br>
+        <br>
+        <a class="sidetxt" routerLink="/commission">Request a Commission</a>
+        <br>
+        <br>
+        <br>
+        <a class="sidetxt" routerLink="/admin">Admin</a>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button mat-icon-button aria-label=" menu " (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+              </button>
+
+            <span class="spacer "></span>
+            <span class="title">Art by Andrea</span>
+            <span class="spacer "></span>
+            <a routerLink="/dashboard">
+                <button mat-icon-button aria-label="home ">
+              <mat-icon >home</mat-icon>
+            </button>
+            </a>
+        </mat-toolbar>
+
+        <div class="main-content centered">
+            <h1>{{title}}</h1>
+            <router-outlet></router-outlet>
+        </div>

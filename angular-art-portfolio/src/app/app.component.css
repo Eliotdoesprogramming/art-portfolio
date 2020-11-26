@@ -5,7 +5,7 @@ h1 {
 .centered {
     display: flex;
     justify-content: center;
-    width: 87%;
+    width: 80%;
     height: 100%;
 }
 
@@ -16,4 +16,54 @@ h1 {
 
 router-outlet {
     justify-content: center;
+}
+
+.spacer {
+    flex: .5 .5 auto;
+}
+
+.material-icons {
+    color: #ccbdda;
+}
+
+.main-content {
+    background-color: #ead8fa;
+    width: 89%;
+    padding: 20px;
+}
+
+.mat-sidenav-content {
+    background-color: #ead8fa;
+}
+
+mat-toolbar {
+    background-color: white;
+}
+
+mat-sidenav {
+    padding: 20px;
+}
+
+.sidetxt {
+    padding: 20px;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+a {
+    color: rgba(180, 77, 228, 0.775);
+    border-bottom-color: rgba(15, 122, 252, 0.2);
+    text-decoration: none
+}
+
+a:hover {
+    color: rgba(180, 77, 228, 0.775);
+    border-bottom-color: rgba(208, 64, 0, 0.2);
+    text-decoration: none
+}
+
+a:visited {
+    color: rgba(180, 77, 228, 0.775);
+    border-bottom-color: rgba(128, 0, 128, 0.2);
+    text-decoration: none
 }
