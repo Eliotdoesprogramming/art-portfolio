@@ -50,7 +50,7 @@ public class PostgresLicenseDao implements LicenseDao {
     public boolean addLicense(License license) {
         template.update("INSERT INTO public.\"LicenseGranted\"(\n" +
                 "\t\"imageId\", \"requestId\", \"validUntil\")\n" +
-                "\tVALUES ('"+license.getImageId()+"', '"+license.getRequestId()+"', '"+license.getValidUntil()+"');");
+                "\tVALUES ( '"+license.getRequestId()+"', '"+license.getValidUntil()+"');");
         return true;
     }
 

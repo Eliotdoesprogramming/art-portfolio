@@ -12,6 +12,7 @@ import { LicenseRequestComponent } from './license-request/license-request.compo
 import { PendingCommissionViewComponent } from './pending-commission-view/pending-commission-view.component';
 import { PendinglrqViewerComponent } from './pendinglrq-viewer/pendinglrq-viewer.component';
 import { SearchComponent } from './search/search.component';
+import { ViewAllGrantedComponent } from './view-all-granted/view-all-granted.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard',pathMatch:'full'},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:'admin/all-lrq',component:AllLicenseViewerComponent},
   {path:'admin/pending-lrq',component:PendinglrqViewerComponent},
   {path:'admin/all-comm', component:AllCommissionViewComponent},
-  {path: 'admin/pending-comm',component:PendingCommissionViewComponent}
+  {path: 'admin/pending-comm',component:PendingCommissionViewComponent},
+  {path: 'admin/granted',component:ViewAllGrantedComponent}
 
   
 ];

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { CommissionRequest } from './commissionRequest';
+import { GrantedLicense } from './grantedLicense';
 import {LicenseRequest} from './licenseRequest'
 
 @Injectable({
@@ -55,7 +56,12 @@ export class AdminService {
       catchError(this.handleError<CommissionRequest>('getAllLicenseRequests',null))
       );
   }
-
+  getGrantedLicenses(): Observable<GrantedLicense[]>{
+    return this.http.get<GrantedLicense[]>(this.url+`/viewLicenses`).pipe(
+      tap(_ => console.log('admin service: retrieved  grantedLicenses')),
+      catchError(this.handleError<GrantedLicense[]>('getGrantedLicenses',[]))
+      ); 
+  }
 
 
 

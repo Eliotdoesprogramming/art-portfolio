@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class License {
     Integer requestId;
-    Integer imageId;
+
     LocalDate validUntil;
 
     public Integer getRequestId() {
@@ -16,13 +16,7 @@ public class License {
         this.requestId = requestId;
     }
 
-    public Integer getImageId() {
-        return imageId;
-    }
 
-    public void setImageId(Integer imageId) {
-        this.imageId = imageId;
-    }
 
     public LocalDate getValidUntil() {
         return validUntil;

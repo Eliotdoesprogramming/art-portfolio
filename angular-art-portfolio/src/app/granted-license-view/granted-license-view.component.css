@@ -1,0 +1,15 @@
+.licenseContainer {
+    background-color: white;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+span {
+    padding: 5px;
+}
+
+button {
+    font-size: 10px;
+    margin-left: 5px;
+}

@@ -52,7 +52,6 @@ public class ArtService {
     public boolean grantLicense(Integer id) {
         LicenseRequest toGrant = licenseDao.getLicenseById(id);
         License license = new License();
-        license.setImageId(toGrant.getImageId());
         license.setRequestId(toGrant.getId());
         license.setValidUntil(LocalDate.now().plusYears(1));
 

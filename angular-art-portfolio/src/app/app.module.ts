@@ -29,6 +29,8 @@ import { PendinglrqViewerComponent } from './pendinglrq-viewer/pendinglrq-viewer
 import { AllCommissionViewComponent } from './all-commission-view/all-commission-view.component';
 import { PendingCommissionViewComponent } from './pending-commission-view/pending-commission-view.component';
 import { CommissionViewComponent } from './commission-view/commission-view.component';
+import { GrantedLicenseViewComponent } from './granted-license-view/granted-license-view.component';
+import { ViewAllGrantedComponent } from './view-all-granted/view-all-granted.component';
 
 
  
@@ -55,6 +57,8 @@ import { CommissionViewComponent } from './commission-view/commission-view.compo
     AllCommissionViewComponent,
     PendingCommissionViewComponent,
     CommissionViewComponent,
+    GrantedLicenseViewComponent,
+    ViewAllGrantedComponent,
   
   
 
