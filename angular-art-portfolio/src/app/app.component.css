@@ -38,6 +38,14 @@ router-outlet {
 
 mat-toolbar {
     background-color: white;
+    position: fixed;
+    z-index: 1;
+    border: .5px solid;
+    border-color: rgb(214, 214, 214);
+}
+
+router-outlet {
+    z-index: -1;
 }
 
 mat-sidenav {
