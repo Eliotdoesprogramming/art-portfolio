@@ -48,7 +48,7 @@ public class PostgresCommissionDao implements CommissionDao{
         return template.query("SELECT * " +
                 "\tFROM public.\"Commissions\"" +
                 " WHERE \"status\" != 'FINISHED'" +
-                "OR \"status\" != 'REJECTED';",new CommissionRequestMapper());
+                "AND \"status\" != 'REJECTED';",new CommissionRequestMapper());
     }
 
     @Override
