@@ -14,13 +14,15 @@ export class CommissionComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(name:string,email:string,description:string){
-    let toSubmit:CommissionRequest={
+    if(email.includes('@'))
+    {let toSubmit:CommissionRequest={
       id:0,  
       name:name,
       email:email,
       description:description,
       status:'PENDING'
     }
-    this.reqService.addCommisionRequest(toSubmit).subscribe(id=>alert(`added request with id ${id}`));
+    this.reqService.addCommisionRequest(toSubmit).subscribe(id=>alert(`added request with id ${id}`));}
+    else alert('invalid email address');
 }
 }

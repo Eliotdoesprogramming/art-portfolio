@@ -23,7 +23,8 @@ export class LicenseRequestComponent implements OnInit {
     this.id = +this.route.snapshot.paramMap.get('id');
   }
   submit(name:string,email:string,business:string,description:string){
-    let toSubmit:LicenseRequest={
+    if(email.includes('@'))
+    {let toSubmit:LicenseRequest={
       id:0,
       imageId:this.id,
       name:name,
@@ -31,7 +32,8 @@ export class LicenseRequestComponent implements OnInit {
       business:business,
       description:description
     }
-    this.reqService.addLicenseRequest(toSubmit).subscribe(id=>alert(`added request with id ${id}`));
+    this.reqService.addLicenseRequest(toSubmit).subscribe(id=>alert(`added request with id ${id}`));}
+    else alert('invalid email address')
     // this.heroService.addHero({ name } as Hero)
     // .subscribe(hero => {
     //   this.heroes.push(hero);
