@@ -15,4 +15,5 @@ public interface LicenseDao {
     Integer addLicenseRequest(LicenseRequest licenseRequest);
 
     List<LicenseView> viewLicenses();
+    Integer revokeLicense(Integer id);
 }

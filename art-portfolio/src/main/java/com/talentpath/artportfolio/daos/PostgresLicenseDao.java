@@ -38,6 +38,13 @@ public class PostgresLicenseDao implements LicenseDao {
     }
 
     @Override
+    public Integer revokeLicense(Integer id) {
+        template.execute("DELETE FROM public.\"LicenseGranted\"\n" +
+                "\tWHERE \"requestId\"='"+id+"';");
+        return id;
+    }
+
+    @Override
     public LicenseRequest getLicenseById(Integer id) {
         return template.query(
                 "SELECT \"id\", \"imageId\", \"name\", \"email\", \"isBusiness\", \"description\"\n" +
@@ -49,7 +56,7 @@ public class PostgresLicenseDao implements LicenseDao {
     @Override
     public boolean addLicense(License license) {
         template.update("INSERT INTO public.\"LicenseGranted\"(\n" +
-                "\t\"imageId\", \"requestId\", \"validUntil\")\n" +
+                "\t \"requestId\", \"validUntil\")\n" +
                 "\tVALUES ( '"+license.getRequestId()+"', '"+license.getValidUntil()+"');");
         return true;
     }
@@ -59,6 +66,8 @@ public class PostgresLicenseDao implements LicenseDao {
         return template.query("SELECT * "+
                 "\tFROM public.\"LicenseRequest\";",new LicenseRequestMapper());
     }
+
+
 
     @Override
     public List<LicenseRequest> getPendingLicenseRequests() {

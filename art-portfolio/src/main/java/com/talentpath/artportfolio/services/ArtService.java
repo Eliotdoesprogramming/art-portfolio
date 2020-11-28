@@ -26,20 +26,36 @@ public class ArtService {
         this.commissionDao=commissionDao;
     }
 
+
+
+
     public List<Image> getAllImages() {
         return artDao.getAllImages();
     }
-
-    public Integer addRequest(LicenseRequest licenseRequest) {
-        return licenseDao.addLicenseRequest(licenseRequest);
+    public List<Image> searchImage(String term) {
+        return artDao.searchImage(term);
     }
-
     public Image getImageById(Integer id) {
         return artDao.getImageById(id);
     }
 
     public Integer addCommissionRequest(CommissionRequest req) {
         return commissionDao.addCommissionRequest(req);
+    }
+    public Integer addRequest(LicenseRequest licenseRequest) {
+        return licenseDao.addLicenseRequest(licenseRequest);
+    }
+    public List<LicenseRequest> getAllLicenseRequests() {
+        return licenseDao.getLicenseRequests();
+    }
+    public List<LicenseRequest> getPendingLicenseRequests(){return licenseDao.getPendingLicenseRequests();}
+
+
+    public List<CommissionRequest> getAllCommissions() {
+        return commissionDao.getCommissionRequests();
+    }
+    public List<CommissionRequest> getPendingCommissions() {
+        return commissionDao.getPendingCommissions();
     }
     public CommissionRequest updateCommission(Integer id, COMMISSION_STATUS status){
         if(commissionDao.updateStatus(id,status))
@@ -48,6 +64,7 @@ public class ArtService {
             return null;
         }
     }
+
 
     public boolean grantLicense(Integer id) {
         LicenseRequest toGrant = licenseDao.getLicenseById(id);
@@ -58,23 +75,7 @@ public class ArtService {
         return licenseDao.addLicense(license);
 
     }
-
-    public List<LicenseRequest> getAllLicenseRequests() {
-        return licenseDao.getLicenseRequests();
-    }
-    public List<LicenseRequest> getPendingLicenseRequests(){return licenseDao.getPendingLicenseRequests();}
-
-    public List<CommissionRequest> getAllCommissions() {
-        return commissionDao.getCommissionRequests();
-    }
-
-    public List<CommissionRequest> getPendingCommissions() {
-        return commissionDao.getPendingCommissions();
-    }
-
-    public List<Image> searchImage(String term) {
-        return artDao.searchImage(term);
-    }
+    public Integer revokeLicense(Integer id){return licenseDao.revokeLicense(id);}
     public List<LicenseView> viewLicenses(){
         return licenseDao.viewLicenses();
     }

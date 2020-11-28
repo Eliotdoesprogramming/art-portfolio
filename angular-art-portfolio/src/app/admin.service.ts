@@ -16,7 +16,7 @@ export class AdminService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   constructor(private http: HttpClient) { }
-
+//license request methods
   getAllLicenseRequests(): Observable<LicenseRequest[]>{
     return this.http.get<LicenseRequest[]>(this.url+`/licenseReqs`).pipe(
       tap(_ => console.log('admin service: retrieved lqrs')),
@@ -29,31 +29,12 @@ export class AdminService {
       catchError(this.handleError<LicenseRequest[]>('getAllLicenseRequests',[]))
       );    
   }
+
+  //license methods
   grantLicense(id:number):Observable<boolean>{
     return this.http.post<boolean>(this.url+`/grantLicense/${id}`,"",this.httpOptions).pipe(
       tap(_ => console.log('admin service: granted license')),
       catchError(this.handleError<boolean>('getAllLicenseRequests',false))
-      );
-  }
-  getAllCommissionRequests(): Observable<CommissionRequest[]>{
-    return this.http.get<CommissionRequest[]>(this.url+`/commissions`).pipe(
-      tap(_ => console.log('admin service: retrieved commreqs')),
-      catchError(this.handleError<CommissionRequest[]>('getAllLicenseRequests',[]))
-      ); 
-  }
-  ///commissions/pending
-  getPendingCommissionRequests(): Observable<CommissionRequest[]>{
-    return this.http.get<CommissionRequest[]>(this.url+`/commissions/pending`).pipe(
-      tap(_ => console.log('admin service: retrieved  pending commreqs')),
-      catchError(this.handleError<CommissionRequest[]>('getAllLicenseRequests',[]))
-      ); 
-  }
-
-  //   /commission/update/{id}/{status}
-  updateCommission(id:number,status:number):Observable<CommissionRequest>{
-    return this.http.put<CommissionRequest>(this.url+`/commission/update/${id}/${status}`,"",this.httpOptions).pipe(
-      tap(_ => console.log('admin service: retrieved  pending commreqs')),
-      catchError(this.handleError<CommissionRequest>('getAllLicenseRequests',null))
       );
   }
   getGrantedLicenses(): Observable<GrantedLicense[]>{
@@ -62,6 +43,33 @@ export class AdminService {
       catchError(this.handleError<GrantedLicense[]>('getGrantedLicenses',[]))
       ); 
   }
+  revokeLicense(id:number):Observable<number>{
+    return this.http.post<number>(this.url+`/revoke/${id}`,"",this.httpOptions).pipe(
+      tap(deleted => alert(`deleted license with req id: ${deleted}`)),
+      catchError(this.handleError<number>('revokeLicense',null))
+    );
+  }
+
+// Commission methods
+  getAllCommissionRequests(): Observable<CommissionRequest[]>{
+    return this.http.get<CommissionRequest[]>(this.url+`/commissions`).pipe(
+      tap(_ => console.log('admin service: retrieved commreqs')),
+      catchError(this.handleError<CommissionRequest[]>('getAllLicenseRequests',[]))
+      ); 
+  }
+  getPendingCommissionRequests(): Observable<CommissionRequest[]>{
+    return this.http.get<CommissionRequest[]>(this.url+`/commissions/pending`).pipe(
+      tap(_ => console.log('admin service: retrieved  pending commreqs')),
+      catchError(this.handleError<CommissionRequest[]>('getAllLicenseRequests',[]))
+      ); 
+  }
+  updateCommission(id:number,status:number):Observable<CommissionRequest>{
+    return this.http.put<CommissionRequest>(this.url+`/commission/update/${id}/${status}`,"",this.httpOptions).pipe(
+      tap(_ => console.log('admin service: retrieved  pending commreqs')),
+      catchError(this.handleError<CommissionRequest>('getAllLicenseRequests',null))
+      );
+  }
+
 
 
 

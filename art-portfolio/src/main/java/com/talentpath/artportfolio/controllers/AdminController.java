@@ -24,6 +24,7 @@ public class AdminController {
     public List<LicenseRequest> allLicenseRequests(){
         return service.getAllLicenseRequests();
     }
+
     @PostMapping("/grantLicense/{id}")
     public boolean grantLicense(@PathVariable Integer id){
         return service.grantLicense(id);
@@ -31,6 +32,11 @@ public class AdminController {
     }
     @GetMapping("/viewLicenses")
     public List<LicenseView> viewLicenses(){return service.viewLicenses();}
+    @PostMapping("/revoke/{id}")
+    public Integer revokeLicense(@PathVariable Integer id){
+
+        return service.revokeLicense(id);
+    }
 
     @GetMapping("/commissions")
     public List<CommissionRequest> allCommissions(){return service.getAllCommissions();}
@@ -59,5 +65,6 @@ public class AdminController {
         }
         return service.updateCommission(id,enumStat);
     }
+
 
 }

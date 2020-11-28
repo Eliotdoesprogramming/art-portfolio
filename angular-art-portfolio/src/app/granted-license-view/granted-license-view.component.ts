@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 import { GrantedLicense } from '../grantedLicense';
 
 @Component({
@@ -8,9 +9,13 @@ import { GrantedLicense } from '../grantedLicense';
 })
 export class GrantedLicenseViewComponent implements OnInit {
   @Input() license:GrantedLicense;
-  constructor() { }
+  constructor(private adminService:AdminService) { }
 
   ngOnInit(): void {
   }
-
+  revokeLicense():void{
+    
+    this.adminService.revokeLicense(this.license.reqId).subscribe();
+    this.license=undefined;
+  }
 }

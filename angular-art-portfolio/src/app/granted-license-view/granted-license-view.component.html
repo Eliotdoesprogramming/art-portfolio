@@ -1,5 +1,4 @@
 <div class="licenseContainer">
-    <br><br><br>
     <span>Request id: {{license.reqId}}</span>
     <br>
     <span>Name: {{license.licensedName}}</span>
@@ -10,5 +9,6 @@
     <br>
     <span>Image name: {{license.imageName}}</span>
     <br>
+    <button mat-raised-button (click)="revokeLicense()">revoke</button>
     <a routerLink="/admin"><button mat-raised-button>return admin</button></a>
 </div>
