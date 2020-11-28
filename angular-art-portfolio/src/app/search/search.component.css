@@ -1,8 +1,6 @@
 #search-componenet {
     height: 100%;
-    width: 100%;
-    justify-content: center;
-    display: flex;
+    width: fit-content;
     margin: 10px;
 }
 
@@ -14,8 +12,7 @@ input {
     margin: 10px;
 }
 
-#but {
-    align-items: left;
+.but {
     height: 2%;
-    width: 10%;
+    width: 19%;
 }

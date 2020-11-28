@@ -3,7 +3,7 @@
     <h4>
         <label for="search-box">Image Search  </label>
         <input #searchBox id="search-box" />
-        <button id="but" mat-raised-button (click)="enter(searchBox.value)">search</button>
+        <button class="but" mat-raised-button (click)="enter(searchBox.value)">search  </button>
         <ul class="search-result">
             <li *ngFor="let image of myImage">
                 <a routerLink="/images/{{image.id}}">
