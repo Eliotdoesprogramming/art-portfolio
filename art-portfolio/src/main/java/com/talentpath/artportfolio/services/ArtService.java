@@ -3,6 +3,9 @@ package com.talentpath.artportfolio.services;
 import com.talentpath.artportfolio.daos.ArtDao;
 import com.talentpath.artportfolio.daos.CommissionDao;
 import com.talentpath.artportfolio.daos.LicenseDao;
+import com.talentpath.artportfolio.exceptions.InvalidCharacterException;
+import com.talentpath.artportfolio.exceptions.InvalidEnumException;
+import com.talentpath.artportfolio.exceptions.InvalidIndexException;
 import com.talentpath.artportfolio.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,10 +35,12 @@ public class ArtService {
     public List<Image> getAllImages() {
         return artDao.getAllImages();
     }
-    public List<Image> searchImage(String term) {
+    public List<Image> searchImage(String term) throws InvalidCharacterException {
+        if(term.indexOf(';') + term.indexOf('%') + term.indexOf(',') > -3) throw new InvalidCharacterException("dont hack my sql");
         return artDao.searchImage(term);
     }
-    public Image getImageById(Integer id) {
+    public Image getImageById(Integer id) throws InvalidIndexException {
+        if(id<0) throw new InvalidIndexException("Invalid index");
         return artDao.getImageById(id);
     }
 
@@ -57,11 +62,11 @@ public class ArtService {
     public List<CommissionRequest> getPendingCommissions() {
         return commissionDao.getPendingCommissions();
     }
-    public CommissionRequest updateCommission(Integer id, COMMISSION_STATUS status){
+    public CommissionRequest updateCommission(Integer id, COMMISSION_STATUS status) throws InvalidEnumException {
         if(commissionDao.updateStatus(id,status))
             return commissionDao.getCommissionRequestById(id);
         else{
-            return null;
+            throw new InvalidEnumException("tried to enter invalid information in database");
         }
     }
 

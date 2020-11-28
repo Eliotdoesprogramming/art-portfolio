@@ -1,5 +1,7 @@
 package com.talentpath.artportfolio.services;
 
+import com.talentpath.artportfolio.exceptions.InvalidCharacterException;
+import com.talentpath.artportfolio.exceptions.InvalidEnumException;
 import com.talentpath.artportfolio.models.COMMISSION_STATUS;
 import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.LicenseRequest;
@@ -25,7 +27,7 @@ class ArtServiceTest {
     }
 
     @Test
-    public void updateStatus(){
+    public void updateStatus() throws InvalidEnumException {
         Integer id = 1;
         COMMISSION_STATUS status = COMMISSION_STATUS.ACCEPTED;
         service.updateCommission(id,status);
@@ -39,7 +41,7 @@ class ArtServiceTest {
         }
     }
     @Test
-    public void searchTest(){
+    public void searchTest() throws InvalidCharacterException {
         List<Image> images =service.searchImage("tree");
         System.out.println(images.get(0).getName());
     }

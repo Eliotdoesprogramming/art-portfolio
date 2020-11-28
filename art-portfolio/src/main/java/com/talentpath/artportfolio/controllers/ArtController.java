@@ -1,5 +1,7 @@
 package com.talentpath.artportfolio.controllers;
 
+import com.talentpath.artportfolio.exceptions.InvalidCharacterException;
+import com.talentpath.artportfolio.exceptions.InvalidIndexException;
 import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.LicenseRequest;
@@ -22,7 +24,7 @@ public class ArtController {
         return service.getAllImages();
     }
     @GetMapping("/images/{id}")
-    public Image getImageById(@PathVariable Integer id){
+    public Image getImageById(@PathVariable Integer id) throws InvalidIndexException {
         return service.getImageById(id);
     }
 
@@ -37,7 +39,7 @@ public class ArtController {
         return service.addCommissionRequest(req);
     }
     @GetMapping("/images/search/{term}")
-    public List<Image> searchResults(@PathVariable String term){
+    public List<Image> searchResults(@PathVariable String term) throws InvalidCharacterException {
         return service.searchImage(term);
     }
 

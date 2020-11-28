@@ -1,6 +1,7 @@
 package com.talentpath.artportfolio.controllers;
 
 
+import com.talentpath.artportfolio.exceptions.InvalidEnumException;
 import com.talentpath.artportfolio.models.COMMISSION_STATUS;
 import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.LicenseRequest;
@@ -43,7 +44,7 @@ public class AdminController {
     @GetMapping("/commissions/pending")
     public List<CommissionRequest> pendingCommissions(){return service.getPendingCommissions();}
     @PutMapping("/commission/update/{id}/{status}")
-    public CommissionRequest updateCommission(@PathVariable Integer id, @PathVariable Integer status){
+    public CommissionRequest updateCommission(@PathVariable Integer id, @PathVariable Integer status) throws InvalidEnumException {
         COMMISSION_STATUS enumStat = COMMISSION_STATUS.PENDING;
         switch(status){
             case 0:

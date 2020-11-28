@@ -1,5 +1,6 @@
 package com.talentpath.artportfolio.daos;
 
+import com.talentpath.artportfolio.exceptions.InvalidIndexException;
 import com.talentpath.artportfolio.models.License;
 import com.talentpath.artportfolio.models.LicenseRequest;
 import com.talentpath.artportfolio.models.LicenseView;
@@ -46,11 +47,13 @@ public class PostgresLicenseDao implements LicenseDao {
 
     @Override
     public LicenseRequest getLicenseById(Integer id) {
+
         return template.query(
                 "SELECT \"id\", \"imageId\", \"name\", \"email\", \"isBusiness\", \"description\"\n" +
                         "\tFROM public.\"LicenseRequest\"" +
                         "where \"id\"='"+id+"'",new LicenseRequestMapper()
         ).get(0);
+
     }
 
     @Override
