@@ -32,7 +32,7 @@ public class ArtService {
 
 
 
-
+    //image methods
     public List<Image> getAllImages() {
         return artDao.getAllImages();
     }
@@ -45,10 +45,7 @@ public class ArtService {
         return artDao.getImageById(id);
     }
 
-    public Integer addCommissionRequest(CommissionRequest req) throws NullExpectedFieldException {
-        if(req == null) throw new NullExpectedFieldException("null object");
-        return commissionDao.addCommissionRequest(req);
-    }
+    //LRQ methods
     public Integer addRequest(LicenseRequest licenseRequest) throws NullExpectedFieldException {
         if(licenseRequest == null) throw new NullExpectedFieldException("null object");
         return licenseDao.addLicenseRequest(licenseRequest);
@@ -58,7 +55,11 @@ public class ArtService {
     }
     public List<LicenseRequest> getPendingLicenseRequests(){return licenseDao.getPendingLicenseRequests();}
 
-
+    //Commission Methods
+    public Integer addCommissionRequest(CommissionRequest req) throws NullExpectedFieldException {
+        if(req == null) throw new NullExpectedFieldException("null object");
+        return commissionDao.addCommissionRequest(req);
+    }
     public List<CommissionRequest> getAllCommissions() {
         return commissionDao.getCommissionRequests();
     }
@@ -73,7 +74,7 @@ public class ArtService {
         }
     }
 
-
+    // License Methods
     public boolean grantLicense(Integer id) throws InvalidIndexException {
         if(id<0 | id==null) throw new InvalidIndexException("please enter a positive index");
         LicenseRequest toGrant = licenseDao.getLicenseById(id);
