@@ -19,16 +19,16 @@ import java.util.List;
 public class AdminController {
     @Autowired
     ArtService service;
-
+    //admin view of requests
     @GetMapping("/licenseReqs/pending")
     public List<LicenseRequest> pendingLicenseRequests(){return service.getPendingLicenseRequests();}
     @GetMapping("/licenseReqs")
     public List<LicenseRequest> allLicenseRequests(){
         return service.getAllLicenseRequests();
     }
-
+    //admin access to licenses
     @PostMapping("/grantLicense/{id}")
-    public boolean grantLicense(@PathVariable Integer id){
+    public boolean grantLicense(@PathVariable Integer id) throws InvalidIndexException {
         return service.grantLicense(id);
 
     }
@@ -38,7 +38,7 @@ public class AdminController {
     public Integer revokeLicense(@PathVariable Integer id) throws InvalidIndexException {
         return service.revokeLicense(id);
     }
-
+    //admin views of commissions
     @GetMapping("/commissions")
     public List<CommissionRequest> allCommissions(){return service.getAllCommissions();}
     @GetMapping("/commissions/pending")

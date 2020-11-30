@@ -6,6 +6,7 @@ import com.talentpath.artportfolio.daos.LicenseDao;
 import com.talentpath.artportfolio.exceptions.InvalidCharacterException;
 import com.talentpath.artportfolio.exceptions.InvalidEnumException;
 import com.talentpath.artportfolio.exceptions.InvalidIndexException;
+import com.talentpath.artportfolio.exceptions.NullExpectedFieldException;
 import com.talentpath.artportfolio.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,10 +45,12 @@ public class ArtService {
         return artDao.getImageById(id);
     }
 
-    public Integer addCommissionRequest(CommissionRequest req) {
+    public Integer addCommissionRequest(CommissionRequest req) throws NullExpectedFieldException {
+        if(req == null) throw new NullExpectedFieldException("null object");
         return commissionDao.addCommissionRequest(req);
     }
-    public Integer addRequest(LicenseRequest licenseRequest) {
+    public Integer addRequest(LicenseRequest licenseRequest) throws NullExpectedFieldException {
+        if(licenseRequest == null) throw new NullExpectedFieldException("null object");
         return licenseDao.addLicenseRequest(licenseRequest);
     }
     public List<LicenseRequest> getAllLicenseRequests() {
@@ -71,7 +74,8 @@ public class ArtService {
     }
 
 
-    public boolean grantLicense(Integer id) {
+    public boolean grantLicense(Integer id) throws InvalidIndexException {
+        if(id<0 | id==null) throw new InvalidIndexException("please enter a positive index");
         LicenseRequest toGrant = licenseDao.getLicenseById(id);
         License license = new License();
         license.setRequestId(toGrant.getId());

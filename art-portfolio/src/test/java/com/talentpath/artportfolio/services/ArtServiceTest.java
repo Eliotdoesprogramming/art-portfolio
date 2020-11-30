@@ -2,6 +2,7 @@ package com.talentpath.artportfolio.services;
 
 import com.talentpath.artportfolio.exceptions.InvalidCharacterException;
 import com.talentpath.artportfolio.exceptions.InvalidEnumException;
+import com.talentpath.artportfolio.exceptions.InvalidIndexException;
 import com.talentpath.artportfolio.models.COMMISSION_STATUS;
 import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.LicenseRequest;
@@ -22,7 +23,7 @@ class ArtServiceTest {
     @Autowired
     ArtService service;
     @Test
-    public void grantLicense(){
+    public void grantLicense() throws InvalidIndexException {
         System.out.println(service.grantLicense(1));
     }
 

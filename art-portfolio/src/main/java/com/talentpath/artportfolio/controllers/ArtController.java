@@ -2,6 +2,7 @@ package com.talentpath.artportfolio.controllers;
 
 import com.talentpath.artportfolio.exceptions.InvalidCharacterException;
 import com.talentpath.artportfolio.exceptions.InvalidIndexException;
+import com.talentpath.artportfolio.exceptions.NullExpectedFieldException;
 import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.LicenseRequest;
@@ -29,13 +30,13 @@ public class ArtController {
     }
 
     @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
-    public Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest){
+    public Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest) throws NullExpectedFieldException {
         System.out.println(licenseRequest);
         LicenseRequest toAdd = new LicenseRequest(licenseRequest);
         return service.addRequest(toAdd);
     }
     @PostMapping(path="/commissionRequest/add", consumes = "application/json", produces = "application/json")
-    public Integer addCommissionRequest(@RequestBody CommissionRequest req){
+    public Integer addCommissionRequest(@RequestBody CommissionRequest req) throws NullExpectedFieldException {
         return service.addCommissionRequest(req);
     }
     @GetMapping("/images/search/{term}")
