@@ -2,6 +2,7 @@ package com.talentpath.artportfolio.controllers;
 
 
 import com.talentpath.artportfolio.exceptions.InvalidEnumException;
+import com.talentpath.artportfolio.exceptions.InvalidIndexException;
 import com.talentpath.artportfolio.models.COMMISSION_STATUS;
 import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.LicenseRequest;
@@ -34,8 +35,7 @@ public class AdminController {
     @GetMapping("/viewLicenses")
     public List<LicenseView> viewLicenses(){return service.viewLicenses();}
     @PostMapping("/revoke/{id}")
-    public Integer revokeLicense(@PathVariable Integer id){
-
+    public Integer revokeLicense(@PathVariable Integer id) throws InvalidIndexException {
         return service.revokeLicense(id);
     }
 

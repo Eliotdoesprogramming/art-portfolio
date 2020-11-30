@@ -80,7 +80,9 @@ public class ArtService {
         return licenseDao.addLicense(license);
 
     }
-    public Integer revokeLicense(Integer id){return licenseDao.revokeLicense(id);}
+    public Integer revokeLicense(Integer id) throws InvalidIndexException {
+        if(id<0)throw new InvalidIndexException("invalid index...");
+        return licenseDao.revokeLicense(id);}
     public List<LicenseView> viewLicenses(){
         return licenseDao.viewLicenses();
     }
