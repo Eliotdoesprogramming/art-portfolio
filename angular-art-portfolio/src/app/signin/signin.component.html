@@ -1,0 +1,12 @@
+<br><br><br>
+
+
+<form (ngSubmit)="onSubmit()">
+    <label>username: </label>
+    <input name="username" [(ngModel)]="login.username">
+    <br>
+    <label>password: </label>
+    <input name="password" [(ngModel)]="login.password" type="password">
+    <br>
+    <button mat-raised-button>sign in</button>
+</form>
