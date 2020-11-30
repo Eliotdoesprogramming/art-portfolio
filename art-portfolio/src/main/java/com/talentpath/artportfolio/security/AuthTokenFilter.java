@@ -23,7 +23,7 @@ import java.io.IOException;
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {
 
-    @Value("${widget.app.jwtsecret}")
+    @Value("${portfolio.app.jwtsecret}")
     private String secret;
 
     @Autowired

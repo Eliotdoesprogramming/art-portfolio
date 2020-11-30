@@ -11,7 +11,9 @@ import { ImageByIdComponent } from './image-by-id/image-by-id.component';
 import { LicenseRequestComponent } from './license-request/license-request.component';
 import { PendingCommissionViewComponent } from './pending-commission-view/pending-commission-view.component';
 import { PendinglrqViewerComponent } from './pendinglrq-viewer/pendinglrq-viewer.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { SearchComponent } from './search/search.component';
+import { SigninComponent } from './signin/signin.component';
 import { ViewAllGrantedComponent } from './view-all-granted/view-all-granted.component';
 
 const routes: Routes = [
@@ -28,7 +30,9 @@ const routes: Routes = [
   {path:'admin/pending-lrq',component:PendinglrqViewerComponent},
   {path:'admin/all-comm', component:AllCommissionViewComponent},
   {path: 'admin/pending-comm',component:PendingCommissionViewComponent},
-  {path: 'admin/granted',component:ViewAllGrantedComponent}
+  {path: 'admin/granted',component:ViewAllGrantedComponent},
+  {path:'login',component:SigninComponent},
+  {path:'signup', component:RegistrationComponent}
 
   
 ];

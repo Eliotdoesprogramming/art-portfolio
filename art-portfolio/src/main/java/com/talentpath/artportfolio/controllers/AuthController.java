@@ -14,10 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Date;
@@ -25,6 +22,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/auth/")
+@CrossOrigin
 public class AuthController {
 
     @Autowired
@@ -39,10 +37,10 @@ public class AuthController {
     @Autowired
     PasswordEncoder encoder;
 
-    @Value( "${widget.app.jwtexpirationms}")
+    @Value( "${portfolio.app.jwtexpirationms}")
     private Integer jwtExpirationMs;
 
-    @Value("${widget.app.jwtsecret}")
+    @Value("${portfolio.app.jwtsecret}")
     private String jwtSecret;
 
     @PostMapping("/signin")
@@ -78,7 +76,7 @@ public class AuthController {
 
     }
 
-    @PostMapping
+    @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest request ){
 
         if( userRepo.existsByUsername( request.getUsername() )){

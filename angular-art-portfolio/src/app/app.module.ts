@@ -8,7 +8,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 // import { InMemImagesService } from './in-mem-images.service';
 import { ImageDisplayComponent } from './image-display/image-display.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -31,6 +31,10 @@ import { PendingCommissionViewComponent } from './pending-commission-view/pendin
 import { CommissionViewComponent } from './commission-view/commission-view.component';
 import { GrantedLicenseViewComponent } from './granted-license-view/granted-license-view.component';
 import { ViewAllGrantedComponent } from './view-all-granted/view-all-granted.component';
+import { SigninComponent } from './signin/signin.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { AuthInterceptor } from './auth-intecept';
+import { FormsModule } from '@angular/forms';
 
 
  
@@ -59,6 +63,8 @@ import { ViewAllGrantedComponent } from './view-all-granted/view-all-granted.com
     CommissionViewComponent,
     GrantedLicenseViewComponent,
     ViewAllGrantedComponent,
+    SigninComponent,
+    RegistrationComponent,
   
   
 
@@ -78,10 +84,15 @@ import { ViewAllGrantedComponent } from './view-all-granted/view-all-granted.com
       // InMemImagesService, { dataEncapsulation: false },)
     MatSidenavModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
     
   ],
-  providers: [],
+  providers: [{
+    useClass: AuthInterceptor,
+    provide: HTTP_INTERCEPTORS,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

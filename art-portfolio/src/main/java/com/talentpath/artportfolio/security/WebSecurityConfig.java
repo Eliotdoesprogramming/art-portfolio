@@ -1,5 +1,10 @@
 package com.talentpath.artportfolio.security;
 
+import com.talentpath.artportfolio.exceptions.InvalidCharacterException;
+import com.talentpath.artportfolio.exceptions.InvalidIndexException;
+import com.talentpath.artportfolio.exceptions.NullExpectedFieldException;
+import com.talentpath.artportfolio.models.Image;
+import com.talentpath.artportfolio.models.LicenseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -12,6 +17,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 //@Configuration      //tells Spring that this is to be used once for config
 @EnableWebSecurity
@@ -56,22 +67,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers( HttpMethod.POST, "/api/auth/signin").permitAll()
                 .antMatchers( HttpMethod.POST, "/api/auth/signup").permitAll()
 
-                .antMatchers( HttpMethod.GET, "/api/public/wdgt", "/api/public/wdgt/**") .permitAll()
-                .antMatchers( HttpMethod.POST, "/api/public/wdgt" ).hasRole("ADMIN")
-                .antMatchers( HttpMethod.PUT, "/api/public/wdgt" ).hasRole("ADMIN")
-                .antMatchers( HttpMethod.DELETE, "/api/public/wdgt" ).hasRole("ADMIN")
-
-
-                .antMatchers( HttpMethod.GET, "/api/role/wdgt", "/api/role/wdgt/**").authenticated()
-                .antMatchers( HttpMethod.POST, "/api/role/wdgt" ).hasAnyRole("ADMIN", "AUTHOR")
-                .antMatchers( HttpMethod.PUT, "/api/role/wdgt" ).hasAnyRole("ADMIN", "AUTHOR")
-                .antMatchers( HttpMethod.DELETE, "/api/role/wdgt" ).hasAnyRole("ADMIN", "AUTHOR")
-
-
-                .antMatchers( HttpMethod.GET, "/api/personal/wdgt", "/api/personal/wdgt/**").authenticated()
-                .antMatchers( HttpMethod.POST, "/api/personal/wdgt" ).authenticated()
-                .antMatchers( HttpMethod.PUT, "/api/personal/wdgt" ).authenticated()
-                .antMatchers( HttpMethod.DELETE, "/api/personal/wdgt" ).authenticated()
 
 
                 .antMatchers( HttpMethod.GET, "/api/userdata", "/api/userdata/**").hasRole("ADMIN")
@@ -83,7 +78,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-                .anyRequest().authenticated().and()
+                .anyRequest().permitAll().and()
                 .addFilterBefore( jwtFilter(), UsernamePasswordAuthenticationFilter.class )
         ;
 
