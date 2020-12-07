@@ -25,6 +25,11 @@
         <br>
         <br>
         <a class="sidetxt" routerLink="/admin">Admin</a>
+        <br>
+        <div *ngIf="userName!=='' ">
+            <p>welcome {{userName}}</p>
+            <button mat-raised-button>logout</button>
+        </div>
 
     </mat-sidenav>
     <mat-sidenav-content>

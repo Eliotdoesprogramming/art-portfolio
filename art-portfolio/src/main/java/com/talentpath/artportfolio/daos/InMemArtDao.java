@@ -4,11 +4,13 @@ import com.talentpath.artportfolio.models.CommissionRequest;
 import com.talentpath.artportfolio.models.Image;
 import com.talentpath.artportfolio.models.License;
 import com.talentpath.artportfolio.models.LicenseRequest;
+import org.springframework.context.annotation.Profile;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Profile("testing")
 public class InMemArtDao implements ArtDao {
     List<Image> allImages;
     public InMemArtDao(){
@@ -38,7 +40,7 @@ public class InMemArtDao implements ArtDao {
 
     @Override
     public Image getImageById(Integer id) {
-        return null;
+        return allImages.stream().filter(image -> image.getId()==id).findAny().orElse(null);
     }
 
     @Override

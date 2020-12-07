@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { tokenName } from '@angular/compiler';
+import { Component, Input } from '@angular/core';
 import { AuthService } from './auth.service';
 import { TokenStorageService } from './token-storage.service';
 
@@ -8,10 +9,11 @@ import { TokenStorageService } from './token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  userName:string ="";
+  @Input() userName:string= "";
   title = "";
-  constructor(private token:TokenStorageService){}
-  getUserName(){
-    this.token.getUser()
+  constructor(){}
+  setUserName(user:string){
+    this.userName=user;
   }
+
 }
