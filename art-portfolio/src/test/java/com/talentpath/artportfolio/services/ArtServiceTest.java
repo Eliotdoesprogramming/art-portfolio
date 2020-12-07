@@ -24,7 +24,9 @@ class ArtServiceTest {
     ArtService service;
     @Test
     public void grantLicense() throws InvalidIndexException {
-        System.out.println(service.grantLicense(1));
+        //System.out.println(service.grantLicense(1));
+        service.grantLicense(1);
+
     }
 
     @Test
@@ -38,13 +40,13 @@ class ArtServiceTest {
         List<LicenseRequest> licenseRequestList=service.getPendingLicenseRequests();
         for (LicenseRequest r: licenseRequestList
              ) {
-            System.out.println(r.getId());
+            //System.out.println(r.getId());
         }
     }
     @Test
     public void searchTest() throws InvalidCharacterException {
         List<Image> images =service.searchImage("tree");
-        System.out.println(images.get(0).getName());
+       // System.out.println(images.get(0).getName());
     }
 
 }
