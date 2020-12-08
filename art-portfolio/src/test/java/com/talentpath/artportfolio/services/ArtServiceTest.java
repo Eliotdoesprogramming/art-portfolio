@@ -76,6 +76,22 @@ class ArtServiceTest {
         
     }
     @Test
+    void searchImage() throws InvalidCharacterException{
+        List<Image> img = service.searchImage("tree");
+        assertTrue(img.size()==1);
+        assertFalse(img.get(0)==null);
+        assertEquals(img.get(0).getId(),1);
+        assertTrue(img.get(0).getName()=="tree");
+    }
+    @Test
+    void searchInvalidChar(){
+        try{
+            service.searchImage("; select * from Users");
+        }catch (InvalidCharacterException e){
+
+        }
+    }
+    @Test
     void getImageByBadId()  {
         try{
             Image img = service.getImageById(99);
@@ -144,6 +160,12 @@ class ArtServiceTest {
         }catch(InvalidIndexException e){
 
         }
+    }
+    @Test
+    void getPendingLrq(){
+        List<LicenseRequest> lrqs=service.getPendingLicenseRequests();
+        assertEquals(lrqs.size(),1);
+        assertTrue(lrqs.get(0).getName()=="skull");
     }
 
 }
