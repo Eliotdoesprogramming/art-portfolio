@@ -14,6 +14,7 @@ export class AllCommissionViewComponent implements OnInit {
   ngOnInit(): void {
     this.getAllCommissions()
   }
+  
   getAllCommissions():void{
     this.adminService.getAllCommissionRequests().subscribe(c=>this.commissions=c);
   }
