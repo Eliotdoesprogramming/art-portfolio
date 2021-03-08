@@ -9,11 +9,7 @@ import java.util.List;
 
 public interface ArtDao {
     List<Image> getAllImages();
-
-
-
     Image getImageById(Integer id);
-
-
     List<Image> searchImage(String term);
+    Integer addArtwork(Image toAdd);
 }

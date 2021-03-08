@@ -28,7 +28,9 @@ router-outlet {
 
 .main-content {
     background-color: #ead8fa;
-    width: 89%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
     padding: 20px;
 }
 

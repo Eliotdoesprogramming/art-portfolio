@@ -9,6 +9,7 @@ import com.talentpath.artportfolio.models.LicenseRequest;
 import com.talentpath.artportfolio.models.LicenseRqFromJson;
 import com.talentpath.artportfolio.services.ArtService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,13 +26,28 @@ public class ArtController {
         return service.getAllImages();
     }
     @GetMapping("/images/{id}")
-    public Image getImageById(@PathVariable Integer id) throws InvalidIndexException {
-        return service.getImageById(id);
+    public ResponseEntity getImageById(@PathVariable Integer id)  {
+        Image foundImage = new Image();
+        try{
+             foundImage = service.getImageById(id);
+        } catch (InvalidIndexException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok(foundImage);
+    }
+    @PostMapping("/images/add")
+    public ResponseEntity addImage(@RequestBody Image toAdd){
+        Integer id = -1;
+        try{
+           id= service.addImage(toAdd);
+        }catch(Exception ex){
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+        return ResponseEntity.ok(id);
     }
 
     @PostMapping(path="/licenseRequest/add", consumes = "application/json", produces = "application/json")
     public Integer addRequest(@RequestBody LicenseRqFromJson licenseRequest) throws NullExpectedFieldException {
-        System.out.println(licenseRequest);
         LicenseRequest toAdd = new LicenseRequest(licenseRequest);
         return service.addRequest(toAdd);
     }

@@ -14,3 +14,8 @@
 .liked {
     background-color: pink;
 }
+
+#artPiece {
+    height: min(1000px, 80vh);
+    width: auto;
+}

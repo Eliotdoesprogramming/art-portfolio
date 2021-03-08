@@ -42,6 +42,19 @@ public class PostgresArtDao implements ArtDao {
 
     }
 
+    @Override
+    public Integer addArtwork(Image toAdd) {
+        return template.query("INSERT INTO public.\"Artwork\"(\n" +
+                "\t name, path, description, category)\n" +
+                "\tVALUES ( ?, ?, ?, ?) returning \"id\";",
+                new IdMapper(),
+                toAdd.getName(),
+                toAdd.getPath(),
+                toAdd.getDescription(),
+                toAdd.getCategory()
+                ).get(0);
+    }
+
 
     private class ArtMapper implements RowMapper<Image>{
 

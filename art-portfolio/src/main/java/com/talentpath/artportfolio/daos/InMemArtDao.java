@@ -48,5 +48,10 @@ public class InMemArtDao implements ArtDao {
         return null;
     }
 
+    @Override
+    public Integer addArtwork(Image toAdd) {
+        return null;
+    }
+
 
 }

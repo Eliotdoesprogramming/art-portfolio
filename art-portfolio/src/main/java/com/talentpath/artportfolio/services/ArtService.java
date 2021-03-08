@@ -44,6 +44,9 @@ public class ArtService {
         if(id<0) throw new InvalidIndexException("Invalid index");
         return artDao.getImageById(id);
     }
+    public Integer addImage(Image toAdd){
+        return artDao.addArtwork(toAdd);
+    }
 
     //LRQ methods
     public Integer addRequest(LicenseRequest licenseRequest) throws NullExpectedFieldException {
